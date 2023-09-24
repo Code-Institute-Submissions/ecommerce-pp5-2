@@ -2,7 +2,7 @@
 name: TASK
 about: Task list
 title: ''
-labels: ''
+labels: TASK
 assignees: Shane-Bath
 
 ---
