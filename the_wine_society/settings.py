@@ -29,7 +29,7 @@ DEBUG = 'DEVELOPMENT' in os.environ
 
 ALLOWED_HOSTS = [
     '8000-shane-bath-ecommerce-pp5-g3jop36yi6.us2.codeanyapp.com',
-    'https://the-wine-society-01e133d06325.herokuapp.com/'
+    'the-wine-society-01e133d06325.herokuapp.com/'
 
 ]
 
