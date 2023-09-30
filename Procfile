@@ -1,0 +1,1 @@
+web: gunicorn the_wine_society.wsgi:application
