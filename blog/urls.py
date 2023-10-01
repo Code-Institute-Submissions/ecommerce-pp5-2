@@ -3,5 +3,6 @@ from . import views
 
 
 urlpatterns = [
-    path('blog/', views.PostList.as_view(), name='blog')
+    path('blog/', views.PostList.as_view(), name='blog'),
+    path('<slug:slug>/', views.PostList.as_view(), name='post_content'),
 ]
