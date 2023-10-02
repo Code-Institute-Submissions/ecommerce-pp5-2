@@ -30,13 +30,25 @@ body {
     background-color: #F9FAFC;
 }
 
+
 .card {
     border: none;
     background-color: transparent;
 }
 
+.card-img-top {
+    max-width: 300px;
+    max-height: 300px;
+}
+
+.summary-container {
+    max-height: 200px;
+    overflow: hidden;
+}
+
 .image-container {
     position: relative;
+    overflow: hidden;
 }
 
 .image-flash {
@@ -118,4 +130,3 @@ body {
     color: #445261;
     text-decoration: underline;
 }
-
