@@ -12,7 +12,7 @@ class Post(models.Model):
         User, on_delete=models.CASCADE, related_name="blog_posts")
     hero_image_url = models.URLField(max_length=1024, null=True, blank=True)
     hero_image = models.ImageField(null=True, blank=True)
-    summary = models.TextField(blank=True, max_length=400)
+    summary = models.TextField(blank=True, max_length=400) # not going to use but will not remove the option. Size control is an issue
     content = models.TextField(blank=True)
     created_on = models.DateTimeField(auto_now_add=True)
     status = models.IntegerField(choices=STATUS, default=0)
