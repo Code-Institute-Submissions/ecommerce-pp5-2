@@ -1,4 +1,139 @@
+:root {
+    --black:(rgb(0, 0, 0));
+    --white: rgb(255, 255, 255);
+    --purple: rgb(123, 31, 162);
+    --violet: rgb(103, 58, 183);
+    --pink: rgb(244, 143, 177);
+    --red: rgb(121, 21, 91);
+    --orange: rgb(246, 99, 92);
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    background: url('/media/main-background.png') no-repeat center center fixed;
+    background-size: cover;
+    height: calc(100vh - 164px);
+    color: #555;
+    font-family: 'Lato', sans-serif;
+}
+
+/* Logo */
+
+@keyframes background-pan {
+    from {
+        background-position: 0% center;
+    }
+
+    to {
+        background-position: 200% center;
+    }
+}
+
+.logo {
+    color: var(--white);
+    /* responsive font size - need to check as I move forward */
+    font-size: clamp(3rem, 2vw, 4em); 
+    /* text-transform: uppercase; */
+    font-weight: 700;
+    margin: 0px;
+    padding: 20px;
+    text-align: center;
+    width: fit-content;
+}
+
+.logo >.grad {
+    animation: background-pan 5s linear infinite;
+    background: linear-gradient(
+        to right,
+            var(--red),
+            var(--orange),
+            var(--pink),
+            var(--red)
+    );
+    background-size: 200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    white-space: nowrap;
+}
+
+/* NAV */
+/* font awesome fa-user */
+.man-color {
+    animation: background-pan 2s linear infinite;
+    background: radial-gradient(
+                var(--red),
+                var(--orange),
+                var(--pink),
+                var(--red)
+    );
+    background-size: 200%;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        white-space: nowrap;
+}
+
+/* font awesome fa-bag and fa-search*/
+.bag-color {
+    animation: background-pan 2s linear infinite;
+    background: radial-gradient(
+            var(--pink),
+            var(--orange),
+            var(--red),
+            var(--pink)
+    );
+    background-size: 200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    white-space: nowrap;
+}
+
+.shop-now-button {
+    background: black;
+    color: white;
+    min-width: 260px;
+}
+
+.btn-black {
+    background: var(--black);
+    color: var(--white);
+}
+
+.shop-now-button:hover,
+.shop-now-button:active,
+.shop-now-button:focus,
+.btn-black:hover,
+.btn-black:active,
+.btn-black:focus {
+    background: #222;
+        color: white;
+}
+/* .shop-now-button:hover {
+    background: #fff;
+} */
+
+.text-black {
+    color: #000 !important;
+}
+
+.border-black {
+    border: 1px solid black !important;
+}
+
+/* ICONS */
+
+.icon {
+    align-items: center;
+    display: inline-flex;
+    justify-content: center;
+    height: 1.5rem;
+    width: 1.5rem;
+}
+
 /* BLOG */
+/* fix nav and spacing */
 body {
     background-color: #F9FAFC;
 }
