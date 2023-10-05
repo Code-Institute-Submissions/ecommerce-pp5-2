@@ -45,15 +45,17 @@ body {
 }
 
 .logo >.grad {
-    animation: background-pan 5s linear infinite;
+    animation: background-pan 6s linear infinite;
     background: linear-gradient(
         to right,
             var(--red),
             var(--orange),
             var(--pink),
+            var(--violet),
             var(--red)
     );
     background-size: 200%;
+    animation-direction: alternate-reverse;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     white-space: nowrap;
@@ -110,9 +112,7 @@ body {
     background: #222;
         color: white;
 }
-/* .shop-now-button:hover {
-    background: #fff;
-} */
+/* review below */
 
 .text-black {
     color: #000 !important;
