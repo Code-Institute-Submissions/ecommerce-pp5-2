@@ -13,7 +13,7 @@ html {
 }
 
 body {
-    background: url('/media/main-background.png') no-repeat center center fixed;
+    background: url('/media/main-background.jpg') no-repeat center center fixed;
     background-size: cover;
     height: calc(100vh - 164px);
     color: #555;
