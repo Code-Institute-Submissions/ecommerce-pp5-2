@@ -148,6 +148,17 @@ body {
     width: 1.5rem;
 }
 
+/* Modal */
+
+.modal-body {
+    padding: 12px 16px 32px 16px;
+}
+
+.dismiss {
+    font-size: 18px;
+    margin-bottom: 3px;
+}
+
 /* BLOG */
 /* fix nav and spacing */
 
