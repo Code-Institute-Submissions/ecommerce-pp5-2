@@ -4,8 +4,9 @@ from .models import Product, Catergory, Country, Region
 # Register your models here.
 class ProductAdmin(admin.ModelAdmin):
     list_display = (
-        'sku',
         'name',
+        'year',
+        'sku',
         'category',
         'country',
         'region',
@@ -15,14 +16,7 @@ class ProductAdmin(admin.ModelAdmin):
 
     ordering = ('sku',)
 
-class CatergoryAdmin(admin.ModelAdmin):
-    list_display = (
-        'friendly_name',
-        'name',
-    )
-
-
 admin.site.register(Product, ProductAdmin)
-admin.site.register(Catergory, CatergoryAdmin)
+admin.site.register(Catergory)
 admin.site.register(Country)
 admin.site.register(Region)

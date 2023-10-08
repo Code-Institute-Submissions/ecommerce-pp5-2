@@ -17,6 +17,10 @@ class Catergory(models.Model):
 
 
 class Country(models.Model):
+
+    class Meta:
+        verbose_name_plural = 'countries'
+
     name = models.CharField(max_length=50)
 
     def __str__(self):
@@ -24,6 +28,11 @@ class Country(models.Model):
 
 
 class Region(models.Model):
+
+    class Meta:
+        verbose_name_plural = 'regions'
+
+
     name = models.CharField(max_length=50)
     country = models.ForeignKey(
         Country, related_name='regions', on_delete=models.CASCADE)
