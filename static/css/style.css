@@ -22,6 +22,10 @@ body {
     /* font-family: 'Lato', sans-serif; */
     font-family: 'Rubik', sans-serif;
 }
+
+.logo-font {
+    text-transform: uppercase;
+}
 /* Need to investigate backgroud */
 /* .index {
     background: url('/media/main-background.png') no-repeat center center fixed;
@@ -157,6 +161,16 @@ body {
 .dismiss {
     font-size: 18px;
     margin-bottom: 3px;
+}
+
+.overlay {
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    position: fixed;
+    background-color: var(--white);
+    z-index: -1;
 }
 
 /* BLOG */
