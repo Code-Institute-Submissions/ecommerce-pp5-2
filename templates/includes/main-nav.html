@@ -32,9 +32,12 @@
                 Regions
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="homeware-link">
-                <a href="" class="dropdown-item">France</a>
+                {% for country in countries %}
+                <a href="" class="dropdown-item">{{ country.name }}</a>
+                <!-- <a href="" class="dropdown-item">France</a>
                 <a href="" class="dropdown-item">Italy</a>
-                <a href="" class="dropdown-item">Spain</a>
+                <a href="" class="dropdown-item">Spain</a> -->
+                {% endfor %}
             </div>
         </li>
         

@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Product, Catergory, Country, Region
+from .models import Product, Category, Country, Region
 
 # Register your models here.
 class ProductAdmin(admin.ModelAdmin):
@@ -17,6 +17,6 @@ class ProductAdmin(admin.ModelAdmin):
     ordering = ('sku',)
 
 admin.site.register(Product, ProductAdmin)
-admin.site.register(Catergory)
+admin.site.register(Category)
 admin.site.register(Country)
 admin.site.register(Region)

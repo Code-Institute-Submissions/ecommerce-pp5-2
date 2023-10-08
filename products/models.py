@@ -1,7 +1,7 @@
 from django.db import models
 
 
-class Catergory(models.Model):
+class Category(models.Model):
 
     class Meta:
         verbose_name_plural = 'categories'
@@ -43,7 +43,7 @@ class Region(models.Model):
 
 class Product(models.Model):
     category = models.ForeignKey(
-        Catergory, related_name='products', null=True, blank=True, on_delete=models.SET_NULL)
+        Category, related_name='products', null=True, blank=True, on_delete=models.SET_NULL)
     country = models.ForeignKey(
         Country, related_name='products', on_delete=models.SET_NULL, null=True, blank=True)
     region = models.ForeignKey(
