@@ -6,5 +6,5 @@ def country_context_processor(request):
 
 
 def category_context_processor(request):
-    countries = Country.objects.all()
+    categories = Category.objects.all()
     return {'categories': categories}

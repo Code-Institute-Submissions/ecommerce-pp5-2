@@ -19,10 +19,12 @@
                 Wine
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="clothing-link">
-                <a href="" class="dropdown-item">Red</a>
-                <a href="" class="dropdown-item">White</a>
+                {% for category in categories %}
+                <a href="" class="dropdown-item">{{ category.name }}</a>
+                <!-- <a href="" class="dropdown-item">White</a>
                 <a href="" class="dropdown-item">Rose</a>
-                <a href="" class="dropdown-item">Sparking</a>
+                <a href="" class="dropdown-item">Sparking</a> -->
+                {% endfor %}
             </div>
         </li>
         
