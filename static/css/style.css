@@ -173,11 +173,159 @@ body {
     z-index: -1;
 }
 
+/* Fade in button Quick action button */
+
+.card {
+    position: relative
+}
+.hover-mask {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 30%;
+    height: 100%;
+    z-index: 1;
+}
+
+.popup {
+    background-color: rgb(201, 200, 200);
+    border: none;
+    padding: 2.5px 5px;
+    text-decoration: none;
+    display: inline-block;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 16px;
+    z-index: 1;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+}
+
+i {
+    padding: 8px;
+}
+
+a {
+    color: white;
+}
+
+.btn-icon {
+    position: absolute;
+    justify-content: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition: transform ease-out 500ms;
+}
+
+.hover-mask:hover .btn-icon {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.add-bag[data-toggle] {
+    position: relative;
+}
+
+.add-bag[data-toggle]::after {
+    content: attr(data-toggle);
+    display: block;
+    position: absolute;
+    padding: 5px 5px;
+    border-radius: 5px;
+    background: rgb(191, 191, 191);
+    bottom: 0;
+    left: 0;
+    white-space: nowrap;
+    transform: scale(0);
+    transition: ease-out 300ms,
+        bottom ease-out 300ms,
+        left ease-out 300ms;
+}
+
+.add-bag[data-toggle]:hover::after {
+    transform: scale(1);
+    bottom: 0%;
+    left: 160%;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+
+.view[data-toggle] {
+    position: relative;
+}
+
+.view[data-toggle]::after {
+    content: attr(data-toggle);
+    display: block;
+    position: absolute;
+    padding: 5px 5px;
+    border-radius: 5px;
+    bottom: 0;
+    left: 0;
+    background: rgb(191, 191, 191);
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    white-space: nowrap;
+    transform: scale(0);
+    transition:
+        transform ease-out 300ms,
+        bottom ease-out 300ms;
+}
+
+.view[data-toggle]:hover::after {
+    transform: scale(1);
+    bottom: -50%;
+    left: 160%; 
+}
+
+.love[data-toggle] {
+    position: relative;
+}
+
+.love[data-toggle]::after {
+    content: attr(data-toggle);
+    display: block;
+    position: absolute;
+    padding: 5px 5px;
+    border-radius: 5px;
+    background: rgb(191, 191, 191);
+    bottom: 0;
+    left: 0;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    transform: scale(0);
+    transition:
+        transform ease-out 300ms,
+        bottom ease-out 300ms,
+        left ease-out 300ms;
+
+}
+
+.love[data-toggle]:hover::after {
+    transform: scale(1);
+    bottom: -100%;
+    left: 160%;
+}
+
+.wish:hover {
+    color: red;
+    transform: scale(2);
+    transition: transform ease-out 500ms;
+
+}
+
+.bag:hover {
+    color: black;
+    transform: scale(2);
+    transition: transform ease-out 500ms;
+}
+
+.glass:hover {
+    transform: scale(2);
+    transition: transform ease-out 500ms;
+}
 /* BLOG */
+/* To review blog css - 10/10/2023 */
 /* fix nav and spacing */
 
-.brand {
-    /* font-family: Lato, sans-serif; */
+/* .brand {
+    font-family: Lato, sans-serif;
     font-size: 1.4rem;
     font-weight: 700;
     color: #4A4A4F;
@@ -207,6 +355,7 @@ body {
 .card {
     border: none;
     background-color: transparent;
+    
 }
 
 .card-img-top {
@@ -302,7 +451,9 @@ body {
 .link:active {
     color: #445261;
     text-decoration: underline;
-}
+}  */
+
+
 
 /* Media Queries */
 

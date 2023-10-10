@@ -37,6 +37,18 @@
                                 </a>
                                 {% endif %}
                                 <div class="card-body pb-0">
+                                    <div class="hover-mask">
+                                        <div class="btn-icon hide">
+                                            <button class="popup">
+                                                <!--  Quick add to bag -->
+                                                <a href="" class="add-bag" data-toggle="Add to bag"><i class="fas fa-shopping-bag bag"></i></a>
+                                                <!-- Add modal to this -->
+                                                <a href="{% url 'product_detail' product.id %}" class="view" data-toggle="View"><i class="fas fa-search glass"></i></a>
+                                                <!-- Add wishlist -->
+                                                <a href="" class="love" data-toggle="Wishlist"><i class="fa-solid fa-heart wish"></i></a>
+                                            </button>
+                                        </div>
+                                    </div>
                                     <p class="mb-0">{{ product }}</p>
                                     <p class="mb-0">{{ product.category }}</p>
                                     <p class="mb-0">{{ product.country }} - {{ product.region }}</p>
@@ -76,4 +88,5 @@
         </div>
     </div>
 </div>
+
 {% endblock %}
