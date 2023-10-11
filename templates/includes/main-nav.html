@@ -20,10 +20,7 @@
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="clothing-link">
                 {% for category in categories %}
-                <a href="" class="dropdown-item">{{ category.name }}</a>
-                <!-- <a href="" class="dropdown-item">White</a>
-                <a href="" class="dropdown-item">Rose</a>
-                <a href="" class="dropdown-item">Sparking</a> -->
+                <a href="{% url 'products' %}?category={{ category.name }}" class="dropdown-item">{{ category.name }}</a>
                 {% endfor %}
             </div>
         </li>
@@ -31,7 +28,7 @@
         <li class="nav-item dropdown">
             <a class="logo-font font-weight-bold nav-link text-white mr-5" href="#" id="homeware-link" data-toggle="dropdown"
                 aria-haspopup="true" aria-expanded="false">
-                Regions
+                Countries
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="homeware-link">
                 {% for country in countries %}
