@@ -1,4 +1,4 @@
-from .models import Country, Category, Region
+from .models import Country, Category, Region, Promotion
 
 
 def country_context_processor(request):
@@ -14,3 +14,8 @@ def category_context_processor(request):
 def region_context_processor(request):
     regions = Region.objects.all()
     return {'regions': regions}
+
+
+def promotion_context_processor(request):
+    promotions = Promotion.objects.all()
+    return {'promotions': promotions}

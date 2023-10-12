@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.db.models import Q
-from .models import Product, Category, Country, Region
+from .models import Product, Category, Country, Region, Promotion
 
 # Create your views here.
 
@@ -12,10 +12,12 @@ def all_products(request):
     products = Product.objects.all()
     all_countries = Country.objects.all()
     all_regions = Region.objects.all()
+    all_promotions = Promotion.objects.all()
     query = None
     categories = None
     countries = None
     regions = None
+    promotions = None
 
     if request.GET:
         if 'category' in request.GET:
@@ -34,6 +36,12 @@ def all_products(request):
             regions = request.GET['region'].split(',')
             products = products.filter(region__name__in=regions)
             regions = Region.objects.filter(name__in=regions)
+
+    if request.GET:
+        if 'promotion' in request.GET:
+            promotions = request.GET['promotion'].split(',')
+            products = products.filter(promotion__name__in=promotions)
+            promotions = Promotion.objects.filter(name__in=promotions)
             
 
         if request.GET:
@@ -53,6 +61,7 @@ def all_products(request):
         'current_categories': categories,
         'countries': all_countries,
         'regions': all_regions,
+        'promotions': all_promotions,
     }
 
     return render(request, 'products/products.html', context)
