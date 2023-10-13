@@ -56,7 +56,15 @@
                                 <div class="card-footer bg-white pt-0 border-0 text-left">
                                     <div class="row">
                                         <div class="col">
-                                            <p class="lead mb-0 text-left font-weight-bold">${{ product.price }}</p>
+                                            <!-- I am not sure if this should be done in the cart. Should this be handled in the model with final_price  -->
+                                            <!-- 13/10 Model not working, leave until I get to cart -->
+                                            {% if product.promotion %}
+                                                <p class="lead mb-0 text-left text-muted discount">Was! ${{ product.price }}</p>
+                                                <p class="lead mb-0 text-left font-weight-bold">{{ product.promotion.name }} {{ product.promotion.discount_percentage }}% off!:</p>
+                                                <p class="lead mb-0 text-left font-weight-bold"> ${{ product.discounted_price }}</p>
+                                            {% else %}
+                                                <p class="lead mb-0 text-left font-weight-bold">${{ product.price }}</p>
+                                            {% endif %}       
                                         </div>
                                     </div>
                                 </div>

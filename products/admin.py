@@ -2,6 +2,8 @@ from django.contrib import admin
 from .models import Product, Category, Country, Region, Promotion
 
 # Register your models here.
+
+
 class ProductAdmin(admin.ModelAdmin):
     list_display = (
         'name',
@@ -11,10 +13,12 @@ class ProductAdmin(admin.ModelAdmin):
         'country',
         'region',
         'price',
-        'image',
+        'promotion',
+        'image', 
     )
 
     ordering = ('sku',)
+
 
 admin.site.register(Product, ProductAdmin)
 admin.site.register(Category)

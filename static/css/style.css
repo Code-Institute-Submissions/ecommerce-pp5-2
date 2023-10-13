@@ -173,6 +173,12 @@ body {
     z-index: -1;
 }
 
+/* Promotions, discounts */
+
+.discount {
+    text-decoration: line-through;
+}
+
 /* Fade in button Quick action button */
 
 .card {
