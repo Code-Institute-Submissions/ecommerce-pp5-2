@@ -58,6 +58,7 @@
                                         <div class="col">
                                             <!-- I am not sure if this should be done in the cart. Should this be handled in the model with final_price  -->
                                             <!-- 13/10 Model not working, leave until I get to cart -->
+                                            <!-- Do i use math and math.ceil to round up to the nearest 5 or dowm to 0 -->
                                             {% if product.promotion %}
                                                 <p class="lead mb-0 text-left text-muted discount">Was! ${{ product.price }}</p>
                                                 <p class="lead mb-0 text-left font-weight-bold">{{ product.promotion.name }} {{ product.promotion.discount_percentage }}% off!:</p>

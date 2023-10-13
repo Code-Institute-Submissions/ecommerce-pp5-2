@@ -76,7 +76,7 @@ class Product(models.Model):
             if self.promotion.discount_percentage:
                 discount = Decimal(self.promotion.discount_percentage) / Decimal(100)
                 discounuted_price = self.price * (Decimal(1) - discount)
-                return discounuted_price.quantize(Decimal('0.01'), rounding=ROUND_UP)
+                return discounuted_price.quantize(Decimal('0.01'), rounding=ROUND_UP) 
             elif self.promotion.discount_amount:
                 return self.price - self.promotion.discount_amount
         return self.price, 2

@@ -42,10 +42,10 @@
                 Special Offers
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="specials-link">
-                <a href="" class="dropdown-item">New Arrivals</a>
-                <a href="" class="dropdown-item">Deals</a>
-                <a href="" class="dropdown-item">Clearance</a>
-                <a href="" class="dropdown-item">All Specials</a>
+                {% for promotion in promotions %}
+                    <a href="{% url 'products' %}?promotion={{ promotion.name }}" class="dropdown-item">{{ promotion.name }}</a>
+                {% endfor %}
+    
             </div>
         </li>
         </ul>
