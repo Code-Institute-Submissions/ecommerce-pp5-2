@@ -85,6 +85,7 @@ TEMPLATES = [
                 'products.context_processors.country_context_processor',
                 'products.context_processors.category_context_processor',
                 'products.context_processors.region_context_processor',
+                'products.context_processors.promotion_context_processor',
             ],
         },
     },
