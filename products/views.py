@@ -18,26 +18,38 @@ def all_products(request):
     countries = None
     regions = None
     promotions = None
+    sort = None
+    direction = None
 
     if request.GET:
+        if 'sort' in request.GET:
+            sortkey = request.GET['sort']
+            sort = sortkey
+            if sortkey == 'name':
+                sorkey = 'lower_name'
+                products = products.annotate(lower_name=Lower('name'))
+
+            if 'direction' in request.GET:
+                direction = request.GET['direction']
+                if direction == 'desc':
+                    sortkey = f'-{sorkey}'
+            products = products.order_by(sortkey)
+
         if 'category' in request.GET:
             categories = request.GET['category'].split(',')
             products = products.filter(category__name__in=categories)
             categories = Category.objects.filter(name__in=categories)
 
-    if request.GET:
         if 'country' in request.GET:
             countries = request.GET['country'].split(',')
             products = products.filter(country__name__in=countries)
             countries = Country.objects.filter(name__in=countries)
 
-    if request.GET:
         if 'region' in request.GET:
             regions = request.GET['region'].split(',')
             products = products.filter(region__name__in=regions)
             regions = Region.objects.filter(name__in=regions)
 
-    if request.GET:
         if 'promotion' in request.GET:
             promotions = request.GET['promotion'].split(',')
             products = products.filter(promotion__name__in=promotions)
@@ -58,6 +70,8 @@ def all_products(request):
 
                 products = products.filter(queries)
 
+    current_sorting = f'{sort}_{direction}'
+
     context = {
         'products': products,
         'search_term': query,
@@ -65,6 +79,7 @@ def all_products(request):
         'countries': all_countries,
         'regions': all_regions,
         'promotions': all_promotions,
+        'current_sorting': current_sorting,
     }
 
     return render(request, 'products/products.html', context)
