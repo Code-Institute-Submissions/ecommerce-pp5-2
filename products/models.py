@@ -2,6 +2,7 @@ from django.db import models
 from decimal import Decimal, ROUND_UP
 from django.utils.text import slugify
 
+
 class Category(models.Model):
 
     class Meta:

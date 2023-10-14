@@ -43,7 +43,6 @@ def all_products(request):
             products = products.filter(promotion__name__in=promotions)
             promotions = Promotion.objects.filter(name__in=promotions)
             
-
         if request.GET:
             if 'q' in request.GET:
                 query = request.GET['q']
@@ -51,7 +50,11 @@ def all_products(request):
                     messages.error(request, 'You did not enter a serch criteria')
                     return redirect(reverse('products'))
                 
-                queries = Q(name__icontains=query) | Q(description__icontains=query)
+                queries = Q(name__icontains=query) | \
+                          Q(description__icontains=query) | \
+                          Q(region__name__icontains=query) | \
+                          Q(country__name__icontains=query) | \
+                          Q(category__name__icontains=query)
 
                 products = products.filter(queries)
 
