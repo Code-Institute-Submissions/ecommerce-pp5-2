@@ -28,11 +28,11 @@
                         <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
                             <div class="card h-100 border-0">
                                 {% if product.image %}
-                                <a href="{% url 'product_detail' product.id %}">
+                                <a href="{% url 'product_detail' product.slug %}">
                                     <img class="card-img-top img-fluid" src="{{ product.image.url }}" alt="{{ product.name }}">
                                 </a>
                                 {% else %}
-                                <a href="{% url 'product_detail' product.id %}">
+                                <a href="{% url 'product_detail' product.slug %}">
                                     <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
                                 </a>
                                 {% endif %}
@@ -49,9 +49,9 @@
                                             </button>
                                         </div>
                                     </div>
-                                    <p class="mb-0">{{ product }}</p>
-                                    <p class="mb-0">{{ product.category }}</p>
-                                    <p class="mb-0">{{ product.country }} - {{ product.region }}</p>
+                                    <p class="mb-0"><i class="fa-solid fa-wine-bottle fa-sm"></i> {{ product }}</p>
+                                    <p class="mb-0"><i class="fa-solid fa-wine-glass fa-sm"></i> {{ product.category }}</p>
+                                    <p class="mb-0"><i class="fa-regular fa-flag fa-sm"></i> {{ product.country }} - {{ product.region }}</p>
                                 </div>
                                 <div class="card-footer bg-white pt-0 border-0 text-left">
                                     <div class="row">
@@ -60,11 +60,11 @@
                                             <!-- 13/10 Model not working, leave until I get to cart -->
                                             <!-- Do i use math and math.ceil to round up to the nearest 5 or dowm to 0 -->
                                             {% if product.promotion %}
-                                                <p class="lead mb-0 text-left text-muted discount">Was! ${{ product.price }}</p>
-                                                <p class="lead mb-0 text-left font-weight-bold">{{ product.promotion.name }} {{ product.promotion.discount_percentage }}% off!:</p>
-                                                <p class="lead mb-0 text-left font-weight-bold"> ${{ product.discounted_price }}</p>
+                                                <p class="lead mb-0 text-left text-muted discount">Was ! ${{ product.price }}</p>
+                                                <p class="lead mb-0 text-left font-weight-bold">{{ product.promotion.name }} {{ product.promotion.discount_percentage }}% off !</p>
+                                                <p class="lead mb-0 text-left font-weight-bold"> <i class="fa-solid fa-euro-sign"></i> {{ product.discounted_price }}</p>
                                             {% else %}
-                                                <p class="lead mb-0 text-left font-weight-bold">${{ product.price }}</p>
+                                                <p class="lead mb-0 text-left font-weight-bold"><i class="fa-solid fa-euro-sign"></i> {{ product.price }}</p>
                                             {% endif %}       
                                         </div>
                                     </div>

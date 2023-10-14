@@ -1,5 +1,6 @@
 from django.db import models
 from decimal import Decimal, ROUND_UP
+from django.utils.text import slugify
 
 class Category(models.Model):
 
@@ -63,6 +64,7 @@ class Product(models.Model):
         Region, related_name='products', on_delete=models.SET_NULL, null=True, blank=True)
     sku = models.CharField(max_length=254, null=True, blank=True)
     name = models.CharField(max_length=254)
+    slug = models.SlugField(unique=True, null=True, blank=True)
     year = models.CharField(max_length=4, null=True, blank=True)
     description = models.TextField()
     price = models.DecimalField(max_digits=10, decimal_places=2)
@@ -71,6 +73,11 @@ class Product(models.Model):
         upload_to='product_images/', null=True, blank=True)
     promotion = models.ForeignKey(
         Promotion, related_name='products', null=True, blank=True, on_delete=models.SET_NULL)
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(f'{self.name} - {self.year} - {self.category}')
+        super().save(*args, **kwargs)
 
     @property
     def discounted_price(self):

@@ -67,10 +67,10 @@ def all_products(request):
     return render(request, 'products/products.html', context)
 
 
-def product_detail(request, product_id):
+def product_detail(request, product_slug):
     """Show product details"""
 
-    product = get_object_or_404(Product, pk=product_id)
+    product = get_object_or_404(Product, slug=product_slug)
 
     context = {
         'product': product,

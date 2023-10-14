@@ -7,6 +7,7 @@ from .models import Product, Category, Country, Region, Promotion
 class ProductAdmin(admin.ModelAdmin):
     list_display = (
         'name',
+        'slug',
         'year',
         'sku',
         'category',
