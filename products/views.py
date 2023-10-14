@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.db.models import Q
 from .models import Product, Category, Country, Region, Promotion
+from collections import defaultdict
 
 # Create your views here.
 
@@ -72,6 +73,13 @@ def all_products(request):
 
     current_sorting = f'{sort}_{direction}'
 
+    # Create dictionary to display each region associated with a country not working
+    country_regions = defaultdict(list)
+
+    for region in Region.objects.all():
+        country_name = region.country.name
+        country_regions[country_name].append(region.name)
+
     context = {
         'products': products,
         'search_term': query,
@@ -80,6 +88,7 @@ def all_products(request):
         'regions': all_regions,
         'promotions': all_promotions,
         'current_sorting': current_sorting,
+        'country_regions': country_regions,
     }
 
     return render(request, 'products/products.html', context)
