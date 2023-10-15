@@ -12,7 +12,8 @@ def bag_contents(request):
 
     for item_id, quantity in bag.items():
         product = get_object_or_404(Product, pk=item_id)
-        total += quantity * (product.discounted_price if product.discounted_price else product.price)
+        total += quantity * \
+            (product.discounted_price if product.discounted_price else product.price)
         # print(product, quantity, product.price, total)
         product_count += quantity
         bag_items.append({
@@ -20,7 +21,7 @@ def bag_contents(request):
             'quantity': quantity,
             'product': product,
         })
-    
+
     if total < settings.FREE_DELIVERY_THRESHOLD:
         delivery = total * Decimal(settings.STANDARD_DELIVERY_PERCENTAGE)
         free_delivery_delta = settings.FREE_DELIVERY_THRESHOLD - total
@@ -29,7 +30,7 @@ def bag_contents(request):
         free_delivery_delta = 0
 
     grand_total = delivery + total
-    
+
     context = {
         'bag_items': bag_items,
         'total': total,
@@ -41,5 +42,3 @@ def bag_contents(request):
     }
 
     return context
-
-

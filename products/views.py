@@ -3,7 +3,9 @@ from django.contrib import messages
 from django.db.models import Q
 from .models import Product, Category, Country, Region, Promotion
 from collections import defaultdict
+from django.template import engines
 
+print(engines['django'].engine.dirs)
 # Create your views here.
 
 
