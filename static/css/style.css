@@ -123,6 +123,19 @@ a:hover {
     color: var(--white);
 }
 
+.btn-outline-black {
+    background: white;
+    color: black !important;
+    border: 1px solid black;
+}
+
+.btn-outline-black:hover,
+.btn-outline-black:active,
+.btn-outline-black:focus {
+    background: black;
+    color: white !important;
+}
+
 .shop-now-button:hover,
 .shop-now-button:active,
 .shop-now-button:focus,
@@ -130,8 +143,9 @@ a:hover {
 .btn-black:active,
 .btn-black:focus {
     background: #222;
-        color: white;
+    color: white;
 }
+
 /* review below */
 
 .text-black {
@@ -144,6 +158,34 @@ a:hover {
 
 .bg-black {
     background: #000000 !important;
+}
+
+.overlay {
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    position: fixed;
+    background-color: var(--white);
+    z-index: -1;
+}
+
+.btt-button {
+    height: 42px;
+    width: 42px;
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+}
+
+.btt-link,
+.update-link,
+.remove-item {
+    cursor: pointer;
+}
+
+input[name='q']::placeholder {
+    color: #aab7c4;
 }
 
 /* ICONS */
@@ -167,15 +209,6 @@ a:hover {
     margin-bottom: 3px;
 }
 
-.overlay {
-    height: 100%;
-    width: 100%;
-    top: 0;
-    left: 0;
-    position: fixed;
-    background-color: var(--white);
-    z-index: -1;
-}
 
 /* Promotions, discounts */
 
