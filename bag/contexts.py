@@ -1,11 +1,10 @@
 from decimal import Decimal
 from django.conf import settings
 from django.shortcuts import get_object_or_404
-import products.models import Product
+from products.models import Product
 
 
 def bag_contents(request):
-
     bag_items = []
     total = 0
     product_count = 0
@@ -13,7 +12,8 @@ def bag_contents(request):
 
     for item_id, quantity in bag.items():
         product = get_object_or_404(Product, pk=item_id)
-        total += quaitity * product.price
+        total += quantity * \
+            (product.discounted_price if product.discounted_price else product.price)
         product_count += quantity
         bag_items.append({
             'item_id': item_id,
@@ -38,7 +38,6 @@ def bag_contents(request):
         'free_delivery_delta': free_delivery_delta,
         'free_delivery_threshold': settings.FREE_DELIVERY_THRESHOLD,
         'grand_total': grand_total,
-
     }
 
     return context

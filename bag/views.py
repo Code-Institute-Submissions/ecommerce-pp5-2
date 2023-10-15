@@ -1,4 +1,6 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
+from products.models import Product
+from django.http import HttpResponseBadRequest
 
 # Create your views here.
 
@@ -22,5 +24,4 @@ def add_to_bag(request, item_id):
         bag[item_id] = quantity
 
     request.session['bag'] = bag
-    
     return redirect(redirect_url)
