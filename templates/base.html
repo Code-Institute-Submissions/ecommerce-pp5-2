@@ -38,21 +38,20 @@
 </head>
 
 <body>
-    <header class="container-fluid fixed-top">
-
-        <div id="delivery-banner" class="row text-center">
-            <div class="col bg-info text-white">
-                <h6 class="logo-font my-1">Free delivery on orders over ${{ free_delivery_threshold }}!</h6>
+    <body>
+        <header class="container-fluid fixed-top">
+            <div id="delivery-banner" class="row text-center">
+                <div class="col bg-info text-white">
+                    <h6 class="logo-font my-1">Free delivery on orders over ${{ free_delivery_threshold }}!</h6>
+                </div>
             </div>
-        </div>
-        <div id="topnav" class="row pt-lg-2 bg-dark d-lg-flex">
-            <div class="col-12 col-lg-4 d-sm-none d-md-block d-none d-sm-block my-auto py-1 py-lg-0 text-lg-left">
-                <!-- THE LOGO - REVIEW AND MAKE CHANGES - uppercase? strong? 700 or 400 plus upper & strong-->
-                <a href="{% url 'home' %}" class="nav-link main-logo-link">
-                    <h2 class="logo"><span class="grad">The Wine Society</span></h2> 
-                </a>
-            </div>
-                <div class="row bg-dark">
+            <div id="topnav" class="row pt-lg-2 bg-dark d-md-flex d-lg-flex">
+                <div class="col-6 col-md-4 col-12 col-lg-4 d-sm-none d-none d-sm-block my-auto py-1 py-lg-0 text-lg-left text-center">
+                    <a href="{% url 'home' %}" class="nav-link main-logo-link">
+                        <h2 class="logo"><span class="grad">The Wine Society</span></h2>
+                    </a>
+                </div>
+                <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
                     <nav class="navbar navbar-expand-lg navbar-dark text-white w-100">
                         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-nav"
                             aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
@@ -60,57 +59,59 @@
                         </button>
                         {% include 'includes/mobile-top-header.html' %}
                         {% include 'includes/main-nav.html' %}
-                        
+    
                     </nav>
-                
-                <!-- SHOPPING BAG AND ACCOUNT -->
-                <div class="col-12 col-lg-4 my-auto py-1 py-lg-0 d-none d-lg-block">
-                    <ul class="list-inline list-unstyled text-center text-lg-right-my-0">
-                        <li class="list-inline-item dropdown">
-                            <a class="text-black nav-link" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true"
-                                aria-expanded="false">
-                                <div class="text-center">
-                                    <div><span class="man-color"><i class="fas fa-user fa-lg"></i></span></div>
-                                    <p class="my-0 text-white">My Account</p>
-                                </div>
-                            </a>
-                            <div class="dropdown-menu border-0" aria-labelledby="user-options">
-                                {% if request.user.is_authenticated %}
+    
+                    <!-- SHOPPING BAG AND ACCOUNT -->
+                    <div class="col-md-4 col-12 col-lg-4 my-auto py-1 py-lg-0 d-none d-lg-block">
+                        <ul class="list-inline list-unstyled text-center text-lg-right-my-0">
+                            <li class="list-inline-item dropdown">
+                                <a class="text-black nav-link" href="#" id="user-options" data-toggle="dropdown"
+                                    aria-haspopup="true" aria-expanded="false">
+                                    <div class="text-center">
+                                        <div><span class="man-color"><i class="fas fa-user fa-lg"></i></span></div>
+                                        <p class="my-0 text-white">My Account</p>
+                                    </div>
+                                </a>
+                                <div class="dropdown-menu border-0" aria-labelledby="user-options">
+                                    {% if request.user.is_authenticated %}
                                     {% if request.user.is_superuser %}
-                                        <a href="" class="dropdown-item">Product Management</a>
+                                    <a href="" class="dropdown-item">Product Management</a>
                                     {% endif %}
                                     <a href="" class="dropdown-item">My Profile</a>
                                     <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
-                                {% else %}
+                                    {% else %}
                                     <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
                                     <a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
-                                {% endif %}
-                            </div>
-                        </li>
-                        <li class="list-inline-item">
-                            <a class="{% if grand_total %}text-info font-weight-bold{% else %}text-black{% endif %} nav-link" href="{% url 'view_bag' %}">
-                                <div class="text-center">
-                                    <div><span class="bag-color"><i class="fas fa-shopping-bag fa-lg"></i></span></div>
-                                    <p class="my-0 text-white">
-                                        {% if grand_total %}
-                                            ${{ grand_total|floatformat:2 }}
-                                        {% else %}
-                                            $0.00
-                                        {% endif %}
-                                    </p>
+                                    {% endif %}
                                 </div>
-                            </a>
-                        </li>
-                        <!-- SEARCH -->
-                        <li class="list-inline-item">
-                            <div><span class="bag-color"><a href="" data-toggle="modal" data-target="#exampleModal"><i class="fas fa-search fa-lg"></i></a></span></div>
-                            <p class="my-0 text-white">Search</p>
-                        </li>
-                    </ul>
+                            </li>
+                            <li class="list-inline-item">
+                                <a class="{% if grand_total %}text-info font-weight-bold{% else %}text-black{% endif %} nav-link"
+                                    href="{% url 'view_bag' %}">
+                                    <div class="text-center">
+                                        <div><span class="bag-color"><i class="fas fa-shopping-bag fa-lg"></i></span></div>
+                                        <p class="my-0 text-white">
+                                            {% if grand_total %}
+                                            ${{ grand_total|floatformat:2 }}
+                                            {% else %}
+                                            $0.00
+                                            {% endif %}
+                                        </p>
+                                    </div>
+                                </a>
+                            </li>
+                            <!-- SEARCH -->
+                            <li class="list-inline-item">
+                                <div><span class="bag-color"><a href="" data-toggle="modal" data-target="#exampleModal"><i
+                                                class="fas fa-search fa-lg"></i></a></span></div>
+                                <p class="my-0 text-white">Search</p>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
-        </div>
-    </header>
+        </header>
     
     
     {% if messages %}
