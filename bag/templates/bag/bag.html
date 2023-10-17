@@ -62,7 +62,33 @@
               {% endif %}
             </td>
             <td class="py-3 w-25">
-              <p class="my-0">{{ item.quantity }}</p>
+              <form action="{% url 'adjust_bag' item.item_id %}" class="form update-form" method="POST">
+                {% csrf_token %}
+                <div class="form-group">
+                    <div class="input-group input-group-{{ item.item_id }}">
+                        <div class="input-group-prepend">
+                            <button class="btn btn-sm btn-outline-black decrement-qty rounded-0 decrement-qty_{{ item.item_id }}"
+                                data-item_id="{{ item.item_id }}">
+                                <span>
+                                    <i class="fas fa-minus fa-sm"></i>
+                                </span>
+                            </button>
+                        </div>
+                        <input class="form-control form-control-sm qty_input id_qty_{{ item.item_id }}" type="number" name="quantity" value="1" min="1"
+                            max="99" data-item_id="{{ item.item_id }}">
+                        <div class="input-group-append">
+                            <button class="btn btn-sm btn-outline-black increment-qty rounded-0 increment-qty_{{ item.item_id }}"
+                                data-item_id="{{ item.item_id }}">
+                                <span>
+                                    <i class="fas fa-plus fa-sm"></i>
+                                </span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+              </form>
+              <a href="" class="update-link text-info"><small>Update</small></a>
+              <a href="" class="remove-item text-danger float-right" id="remove_{{ item.item_id }}"><small>Remove</small></a>
             </td>
             <td class="py-3">
               {% if item.product.promotion %}
@@ -99,7 +125,7 @@
                 </span>
                 <span class="text-uppercase">Keep Shopping</span>
               </a>
-              <a href="" class="btn btn-black rounded-0 btn-lg">
+              <a href="" class="btn btn-outline-black rounded-0 btn-lg">
                 <span class="text-uppercase">Secure Checkout</span>
                 <span class="icon">
                   <i class="fas fa-lock"></i>
@@ -124,4 +150,31 @@
     </div>
   </div>
 </div>
+{% endblock %}
+
+{% block postloadjs %}
+{{ block.super }}
+{% include 'includes/quantity_input_script.html' %}
+<script type="text/javascript">
+    // Update quantity on click
+    $('.update-link').click(function (e) {
+        var form = $(this).prev('.update-form');
+        form.submit();
+    });
+
+    // Remove item and reload on click
+    $('.remove-item').click(function (e) {
+        var csrfToken = "{{ csrf_token }}";
+        var itemId = $(this).attr('id').split('remove_')[1];
+        var size = $(this).data('size');
+        var url = `/bag/remove/${itemId}`;
+        var data = { 'csrfmiddlewaretoken': csrfToken, 'size': size };
+
+        $.post(url, data)
+            .done(function () {
+                location.reload();
+            });
+    })
+</script>
+
 {% endblock %}
