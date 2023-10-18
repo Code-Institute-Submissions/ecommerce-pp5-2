@@ -1,4 +1,9 @@
-{% extends "base.html" %} {% load static %} {% block page_header %}
+{% extends "base.html" %} 
+{% load static %}
+{% load bag_tools %}
+
+
+{% block page_header %}
 <div class="container header-container">
   <div class="row">
     <div class="col"></div>
@@ -74,7 +79,7 @@
                                 </span>
                             </button>
                         </div>
-                        <input class="form-control form-control-sm qty_input id_qty_{{ item.item_id }}" type="number" name="quantity" value="1" min="1"
+                        <input class="form-control form-control-sm qty_input id_qty_{{ item.item_id }}" type="number" name="quantity" value="{{ item.quantity }}" min="1"
                             max="99" data-item_id="{{ item.item_id }}">
                         <div class="input-group-append">
                             <button class="btn btn-sm btn-outline-black increment-qty rounded-0 increment-qty_{{ item.item_id }}"
@@ -92,9 +97,9 @@
             </td>
             <td class="py-3">
               {% if item.product.promotion %}
-              <p class="my-0">${{ item.product.discounted_price }}</p>
+              <p class="my-0">${{ item.product.discounted_price | calc_subtotal:item.quantity }}</p>
               {% else %}
-              <p class="my-0">${{ item.product.price }}</p>
+              <p class="my-0">${{ item.product.price | calc_subtotal:item.quantity }}</p>
               {% endif %}
             </td>
           </tr>
@@ -167,7 +172,7 @@
         var csrfToken = "{{ csrf_token }}";
         var itemId = $(this).attr('id').split('remove_')[1];
         var size = $(this).data('size');
-        var url = `/bag/remove/${itemId}`;
+        var url = `/bag/remove/${itemId}/`;
         var data = { 'csrfmiddlewaretoken': csrfToken, 'size': size };
 
         $.post(url, data)
