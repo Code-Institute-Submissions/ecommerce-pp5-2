@@ -91,11 +91,11 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'django.template.context_processors.media',
+                'bag.contexts.bag_contents',
                 'products.context_processors.country_context_processor',
                 'products.context_processors.category_context_processor',
                 'products.context_processors.region_context_processor',
                 'products.context_processors.promotion_context_processor',
-                'bag.contexts.bag_contents',
             ],
             'builtins': [
                 'crispy_forms.templatetags.crispy_forms_tags',
