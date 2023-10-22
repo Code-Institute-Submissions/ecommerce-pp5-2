@@ -63,7 +63,8 @@ class OrderLineItem(models.Model):
         """
         override the save method to set order number
         """
-        self.lineitem_total = self.product.price * self.quantity
+        price_to_use = self.product.discounted_price if self.product.discounted_price else self.product.price
+        self.lineitem_total = price_to_use  * self.quantity
         super().save(*args, **kwargs)
 
     def __str__(self):
