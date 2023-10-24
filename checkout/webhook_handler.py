@@ -6,6 +6,9 @@ from products.models import Product
 import json
 import time
 import stripe
+import logging
+
+logger = logging.getLogger(__name__)
 
 class StripeWH_Handler:
     """Handle Stripe webhooks"""
@@ -25,6 +28,8 @@ class StripeWH_Handler:
         """
         Handle the payment_intent.succeeded webhook from Stripe
         """
+        logger.info("Handling payment_intent.succeeded event")
+
         intent = event.data.object
         pid = intent.id
         bag = intent.metadata.bag
@@ -68,10 +73,14 @@ class StripeWH_Handler:
                 attempt += 1
                 time.sleep(1)
         if order_exists:
+            logger.info(f"Shipping Details: {shipping_details.address}")
+            logger.info(f"Order already exists: {order.id}")
             return HttpResponse(
                 content=f'Webhook received: {event["type"]} | SUCCESS: Verified order already in database',
                 status=200)
         else:
+            logger.info(f"Shipping Details: {shipping_details.address}")
+            logger.info("Creating a new order")
             order = None
             try:
                 order = Order.objects.create(

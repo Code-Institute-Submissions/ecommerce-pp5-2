@@ -30,6 +30,7 @@ def cache_checkout_data(request):
 
 
 def checkout(request):
+    print("Entered checkout view")
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
     stripe_secret_key = settings.STRIPE_SECRET_KEY
 
@@ -45,16 +46,20 @@ def checkout(request):
             'town_or_city': request.POST['town_or_city'],
             'street_address1': request.POST['street_address1'],
             'street_address2': request.POST['street_address2'],
-            'county': request.POST['county_or_state'],
+            'county_or_state': request.POST['county_or_state'],
         }
         order_form = OrderForm(form_data)
+        print(form_data)
         if order_form.is_valid():
+            print("Order form is valid")
             order = order_form.save(commit=False)
             pid = request.POST.get('client_secret').split('_secret')[0]
             order.stripe_pid = pid
             order.orginal_bag = json.dumps(bag)
             order.save()
+            print(f"Order saved with ID: {order.id}")
             for item_id, item_data in bag.items():
+                print(f"Processing item ID: {item_id}")
                 try:
                     product = Product.objects.get(id=item_id)
                     if isinstance(item_data, int):
@@ -114,7 +119,7 @@ def checkout(request):
         'stripe_public_key': stripe_public_key,
         'client_secret': intent.client_secret,
     }
-
+    print("Exiting checkout view")
     return render(request, template, context)
 
 
@@ -122,6 +127,7 @@ def checkout_success(request, order_number):
     """
     Handle successful checkouts
     """
+    print("Entered checkout_success view")
     save_info = request.session.get('save_info')
     order = get_object_or_404(Order, order_number=order_number)
     messages.success(request, f'Order successfully processed! \
@@ -135,5 +141,5 @@ def checkout_success(request, order_number):
     context = {
         'order': order,
     }
-
+    print("Exiting checkout_success view")
     return render(request, template, context)
