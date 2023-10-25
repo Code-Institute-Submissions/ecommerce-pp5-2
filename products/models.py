@@ -47,10 +47,10 @@ class Promotion(models.Model):
         verbose_name_plural = 'Promotions'
     
     name = models.CharField(max_length=50)
-    discount_percentage = models.PositiveIntegerField(null=True, blank=True,
+    discount_percentage = models.PositiveIntegerField(null=True, blank=True, 
      help_text="Enter discount as percentage(e.g., 10 for 10 %)")
-    discount_amount = models.DecimalField(max_digits=10, decimal_places=2,
-     null=True, blank=True, help_text="Enter a fixed discount amount.")
+    discount_amount = models.DecimalField(max_digits=10, decimal_places=2, null=True, 
+    blank=True, help_text="Enter a fixed discount amount.")
 
     def __str__(self):
         return self.name
