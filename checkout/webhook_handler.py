@@ -6,12 +6,11 @@ from products.models import Product
 import json
 import time
 import stripe
-import logging
 
-logger = logging.getLogger(__name__)
 
 class StripeWH_Handler:
     """Handle Stripe webhooks"""
+    print("StripeWH_Handler initialized")
 
     def __init__(self, request):
         self.request = request
@@ -20,6 +19,7 @@ class StripeWH_Handler:
         """
         Handle a generic/unknown/unexpected webhook event
         """
+        print("Handling generic event")
         return HttpResponse(
             content=f'Unhandled webhook received: {event["type"]}',
             status=200)
@@ -28,9 +28,9 @@ class StripeWH_Handler:
         """
         Handle the payment_intent.succeeded webhook from Stripe
         """
-        logger.info("Handling payment_intent.succeeded event")
-
+        print("Handling payment_intent.succeeded event")
         intent = event.data.object
+        print(f"Intent ID: {intent.id}")
         pid = intent.id
         bag = intent.metadata.bag
         save_info = intent.metadata.save_info
@@ -44,7 +44,7 @@ class StripeWH_Handler:
         shipping_details = intent.shipping
         grand_total = round(stripe_charge.amount / 100, 2)
          
-        #Clean data in the shipping details
+        # Clean data in the shipping details
         for field, value in shipping_details.address.items():
             if value == "":
                 shipping_details.address[field] = None
@@ -53,6 +53,7 @@ class StripeWH_Handler:
         attempt = 1
         while attempt <= 5:
             try:
+                print(f"Attempt {attempt} to find order")
                 order = Order.objects.get(
                     full_name__iexact=shipping_details.name,
                     email__iexact=billing_details.email,
@@ -67,20 +68,21 @@ class StripeWH_Handler:
                     original_bag=bag,
                     stripe_pid=pid,
                 )
+                print("Order found in database")
                 order_exists = True
                 break
             except Order.DoesNotExist:
                 attempt += 1
+                print(f"Order not found, sleeping for 1 second before attempt {attempt}")
                 time.sleep(1)
         if order_exists:
-            logger.info(f"Shipping Details: {shipping_details.address}")
-            logger.info(f"Order already exists: {order.id}")
+            print('Order is in the database')
             return HttpResponse(
                 content=f'Webhook received: {event["type"]} | SUCCESS: Verified order already in database',
                 status=200)
+            print('Order is in the database')
         else:
-            logger.info(f"Shipping Details: {shipping_details.address}")
-            logger.info("Creating a new order")
+            print("Creating new order")
             order = None
             try:
                 order = Order.objects.create(
@@ -114,13 +116,14 @@ class StripeWH_Handler:
                                 product_size=size,
                             )
                             order_line_item.save()
+                            print("Order successfully created")
             except Exception as e:
                 if order:
+                    print("Deleting incomplete order")
                     order.delete()
                 return HttpResponse(
                     content=f'Webhook received: {event["type"]} | ERROR: {e}',
                     status=500)
-
         return HttpResponse(
             content=f'Webhook received: {event["type"]} | SUCCESS: Created order in webhook',
             status=200)
@@ -129,6 +132,7 @@ class StripeWH_Handler:
         """
         Handle the payment_intent.payment_failed webhook from Stripe
         """
+        print("Handling payment_intent.payment_failed event")
         return HttpResponse(
             content=f'Webhook received: {event["type"]}',
             status=200)

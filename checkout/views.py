@@ -22,6 +22,7 @@ def cache_checkout_data(request):
             'save_info': request.POST.get('save_info'),
             'username': request.user,
         })
+    
         return HttpResponse(status=200)
     except Exception as e:
         messages.error(request, 'Sorry your payment cannot be \
@@ -52,6 +53,7 @@ def checkout(request):
         print(form_data)
         if order_form.is_valid():
             print("Order form is valid")
+            print(form_data)
             order = order_form.save(commit=False)
             pid = request.POST.get('client_secret').split('_secret')[0]
             order.stripe_pid = pid
@@ -106,6 +108,7 @@ def checkout(request):
             amount=stripe_total,
             currency=settings.STRIPE_CURRENCY,
         )
+        print(current_bag)
 
         order_form = OrderForm()
 
@@ -133,6 +136,7 @@ def checkout_success(request, order_number):
     messages.success(request, f'Order successfully processed! \
         Your order number is {order_number}. A confirmation \
         email will be sent to {order.email}.')
+    print(order)
 
     if 'bag' in request.session:
         del request.session['bag']
@@ -142,4 +146,5 @@ def checkout_success(request, order_number):
         'order': order,
     }
     print("Exiting checkout_success view")
+    print(order)
     return render(request, template, context)
