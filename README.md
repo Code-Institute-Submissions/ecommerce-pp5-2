@@ -1,39 +1,134 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# The Wine Society*
 
-Welcome,
+This website is a specialist shop, with a wine club. A place for wine enthusiast. The shop will sell wine from different parts of the world, and will encourage customers to join the club to access extra customer benefits.  
 
-This is the Code Institute student template for Codeanywhere. If you are using Gitpod then you need [this template](https://github.com/Code-Institute-Org/gitpod-full-template) instead.  We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+## Table of Contents
 
-You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Codeanywhere and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **August 30th, 2023**
+- Introduction
+- Business Model
+- Preparation
+	 - Wireframe
+	 - Agile / Github issues and projects
+- Features
+	 - Homepage
+	 - Shop
+	 - Club / Blog
+	 - Images
+	 - Typgraphy
+	 - Color Scheme
+	 - Site management
+- Technologies
+	 - Django
+	 - SQL Database
+	 - Stripe
+	 - Heroku
+	 - AWS
+- Marketing
+- Testing
+- Deployment
+- Bugs
+- Credits
+- Acknowledgements
 
-## Codeanywhere Reminders
+## Introduction
 
-To run a frontend (HTML, CSS, Javascript only) application in Codeanywhere, in the terminal, type:
+## Business Model
 
-`python3 -m http.server`
+This a business to customer business, built around a community. The site will offer a traditional retail experience, with the goal of engaging customers who are interested in the product and want to learn more about its background, attend tastings, and hear talks from winemakers and other industry specialists. The wine club will produce informative and engaging blog posts, host wine tasting events, and offer member discounts and monthly wine samples curated around themes and events.  The club will offer a subscription service to provide customers with a convenient and hassle-free way to discover and enjoy new wines. The business will also offer products related to wine, including wine glasses, decanters, wine opener, and other related products.  
 
-A button should appear to click: _Open Preview_ or _Open Browser_.
+## Preparation
 
-To run a frontend (HTML, CSS, Javascript only) application in Codeanywhere with no-cache, you can use this alias for `python3 -m http.server`.
+### Wireframes
 
-`http_server`
+Before using Balsamiq to layout my design, I prefer to utilize simple hand drawn sketches to develop my websites. To have a better understanding of the design and functionality, I took some time to examine and dissect other websites that I found enjoyable.
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+ *need to add wireframe images here*
 
-A button should appear to click: _Open Preview_ or _Open Browser_.
+### Agile Development
 
-In Codeanywhere you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+In the development of this e-commerce Django site, Agile methodologies were employed. The project was organised into various Tasks, contributing to overarching Epics that represented large-scale features and goals. To track the progress and ensure that stages were achieved, milestones were set at key points throughout the project timeline.
 
-To log into the Heroku toolbelt CLI:
+User Stories were created and divided between the site owner and the customer to represent the different requirements and positions of these two groups. User Stories covered issues like customer management and inventory control for the website owner. The focus for the customer, was on enhancing user experience through seamless navigation, efficient checkouts, and intuitive search functionalities. By combining Agile practices with clearly defined milestones, the I was able to prioritise work, adapt to changes, and hopefully produce a functional ecommerce website.
 
-1. Log in to your Heroku account and go to _Account Settings_ in the menu under your avatar.
-2. Scroll down to the _API Key_ and click _Reveal_
-3. Copy the key
-4. In Codeanywhere, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
+*Need to add agile picture here*
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
+## Features
 
----
+### Homepage
 
-Happy coding!
+The homepage will feature a large hero image, with the title of the business. The image will take up 100% of the viewport. The shop link will be prominently displayed on the page. The website owner will be able to use this landing page to create a theme for the site, either to promote a product, an event, or a season.
+
+As the user scrolls down, they will see bold images with links to different sections of the shop. For example, a "Bold Reds" image would bring the user to a curated selection of red wines. The homepage will also contain links to the blog and wine club, with information about upcoming events.
+
+*insert screenshot of homepage*
+
+### Shop
+
+*Will need to reorder*
+
+#### Product Image
+
+#### Category selection / Search
+
+#### Product detail
+
+#### Pricing
+
+#### Shopping bag
+
+#### Checkout
+
+#### Sign up
+
+### Blog
+
+A wine blog can be a useful marketing tool for an online wine shop in a number of ways. First, it can help the owner to educate customers about the different aspects of wine, such as regions, styles, and varieties. This can help customers to make more informed choices when purchasing wine from the shop.
+
+A wine blog can help to promote the wine shop to new customers. By publishing high-quality blog posts that are relevant to a target audience, you can attract visitors to the website and encourage them to learn more about the business. It can also help to build relationships with customers. By sharing interesting and useful information about wine, the owner can show customers that they are knowledgeable and passionate about the product they sell.
+
+An example of blog post could be about different types of wine that are for sale, discussing a particular region or variety available in the store. You could also write about specific winemakers and wineries. The owner could blog about wine and food parings or wine tasting events. Provide a tips and advice section.
+
+A wine blog can be used to populate other marketing channels, such as Facebook and Instagram, with engaging and informative content. Additionally, Google places higher ranking on authoritative sources, so a regularly updated blog can assist the overall business with SEO rankings.
+
+### Images
+
+### Color Scheme
+
+### Typography
+
+### Site management
+
+## Technologies*
+
+### Languages
+
+- HTML
+- CSS
+- JavaScript
+- Python
+
+### Programs, Libraires and Programs
+
+- Django
+- Django Allauth
+- Codeanywhere
+- Heroku
+- Elephant SQL
+- Amazon Web Services
+- Stripe
+-
+
+## Marketing
+
+*rough
+fcaebook, twitter, Instagram, email, blog*
+
+## Testing
+
+## Deployment
+
+## Bugs
+
+## Credits
+
+## Acknowledgements
