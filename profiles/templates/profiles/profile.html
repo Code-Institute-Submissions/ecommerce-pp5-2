@@ -65,7 +65,7 @@
                                     </ul>
                                 </td>
                                 <td>
-                                    ${{ grand_total }}
+                                    ${{ order.grand_total|floatformat:2 }}
                                 </td>
                             </tr>
                             {% endfor %}
