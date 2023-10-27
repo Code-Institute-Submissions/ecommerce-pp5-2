@@ -1,4 +1,4 @@
-from decimal import Decimal
+from decimal import Decimal, ROUND_DOWN
 from django.conf import settings
 from django.shortcuts import get_object_or_404
 from products.models import Product
@@ -6,7 +6,7 @@ from products.models import Product
 
 def bag_contents(request):
     bag_items = []
-    total = 0
+    total = Decimal('0.00')
     product_count = 0
     bag = request.session.get('bag', {})
 
@@ -15,7 +15,9 @@ def bag_contents(request):
             product = get_object_or_404(Product, pk=item_id)
             price_to_use = product.discounted_price if product.discounted_price else product.price
             total += item_data * price_to_use
-            print(total)
+            print(f'bag_contents')
+            print(item_data)
+            print(price_to_use)
             product_count += item_data
             bag_items.append({
                 'item_id': item_id,
@@ -40,10 +42,15 @@ def bag_contents(request):
     else:
         delivery = 0
         free_delivery_delta = 0
+    
+    print(f'bag_content_else')
+    print(f'delivery')
     print(delivery)
+    print(f'Total')
     print(total)
     grand_total = delivery + total
-    print(grand_total)
+    print(f'grand_total')
+    print((grand_total))
 
     context = {
         'bag_items': bag_items,

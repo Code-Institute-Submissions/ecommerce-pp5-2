@@ -2,6 +2,7 @@ from django.http import HttpResponse
 
 from .models import Order, OrderLineItem
 from products.models import Product
+from profiles.models import UserProfile
 
 import json
 import time
@@ -49,6 +50,20 @@ class StripeWH_Handler:
             if value == "":
                 shipping_details.address[field] = None
 
+        profile = None
+        username = intent.metadata.username
+        if username != 'AnonymousUser':
+            profile = UserProfile.objects.get(user__username=username)
+            if save_info:
+                profile.default_phone_number = shipping_details.phone
+                profile.default_country = shipping_details.address.country
+                profile.default_postcode = shipping_details.address.postal_code
+                profile.default_town_or_city = shipping_details.address.city
+                profile.default_street_address1 = shipping_details.address.line1
+                profile.default_street_address2 = shipping_details.address.line2
+                profile.default_county_or_state = shipping_details.address.state
+                profile.save()
+
         order_exists = False
         attempt = 1
         while attempt <= 5:
@@ -69,20 +84,24 @@ class StripeWH_Handler:
                     stripe_pid=pid,
                 )
                 print("Order found in database")
+                print(f'stripe pid {pid}')
                 order_exists = True
                 break
             except Order.DoesNotExist:
                 attempt += 1
                 print(f"Order not found, sleeping for 1 second before attempt {attempt}")
+                print(f'stripe pid {pid}, {attempt}')
                 time.sleep(1)
         if order_exists:
             print('Order is in the database')
+            print(f'stripe pid {pid}')
             return HttpResponse(
                 content=f'Webhook received: {event["type"]} | SUCCESS: Verified order already in database',
                 status=200)
             print('Order is in the database')
+            print(f'stripe pid {pid}')
         else:
-            print("Creating new order")
+            print(f'Creating new order with stripe pid {pid}')
             order = None
             try:
                 order = Order.objects.create(
@@ -107,16 +126,11 @@ class StripeWH_Handler:
                             quantity=item_data,
                         )
                         order_line_item.save()
-                    else:
-                        for size, quantity in item_data['items_by_size'].items():
-                            order_line_item = OrderLineItem(
-                                order=order,
-                                product=product,
-                                quantity=quantity,
-                                product_size=size,
-                            )
-                            order_line_item.save()
-                            print("Order successfully created")
+                        print(order)
+                        print(bag)
+                        print(f'stripe pid {pid} duplicate')
+                
+                        print("Order successfully created")
             except Exception as e:
                 if order:
                     print("Deleting incomplete order")

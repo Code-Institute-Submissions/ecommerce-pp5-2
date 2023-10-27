@@ -52,14 +52,14 @@ def checkout(request):
             'county_or_state': request.POST['county_or_state'],
         }
         order_form = OrderForm(form_data)
-        print(form_data)
+        print(f'form_data{form_data} from checkout view')
         if order_form.is_valid():
             print("Order form is valid")
             print(form_data)
             order = order_form.save(commit=False)
             pid = request.POST.get('client_secret').split('_secret')[0]
             order.stripe_pid = pid
-            order.orginal_bag = json.dumps(bag)
+            order.original_bag = json.dumps(bag)
             order.save()
             print(f"Order saved with ID: {order.id}")
             for item_id, item_data in bag.items():
@@ -73,15 +73,7 @@ def checkout(request):
                             quantity=item_data,
                         )
                         order_line_item.save()
-                    else:
-                        for size, quantity in item_data['items_by_size'].items():
-                            order_line_item = OrderLineItem(
-                                order=order,
-                                product=product,
-                                quantity=quantity,
-                                product_size=size,
-                            )
-                            order_line_item.save()
+                    
                 except Product.DoesNotExist:
                     messages.error(request, (
                         "One of the products in your bag wasn't found in our database. "
@@ -110,7 +102,8 @@ def checkout(request):
             amount=stripe_total,
             currency=settings.STRIPE_CURRENCY,
         )
-        print(current_bag)
+
+        print(F'current_bag{current_bag}')
 
         order_form = OrderForm()
 
