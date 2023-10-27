@@ -41,8 +41,14 @@ This a business to customer business, built around a community. The site will of
 ### Wireframes
 
 Before using Balsamiq to layout my design, I prefer to utilize simple hand drawn sketches to develop my websites. To have a better understanding of the design and functionality, I took some time to examine and dissect other websites that I found enjoyable.
+### Product Page
+ ![product Page](/media/readme_images/product.png)
 
- *need to add wireframe images here*
+ ### Shop
+![product Page](/media/readme_images/Shop.png)
+
+### Basket
+![product Page](/media/readme_images/basket.png)
 
 ### Agile Development
 
@@ -50,7 +56,8 @@ In the development of this e-commerce Django site, Agile methodologies were empl
 
 User Stories were created and divided between the site owner and the customer to represent the different requirements and positions of these two groups. User Stories covered issues like customer management and inventory control for the website owner. The focus for the customer, was on enhancing user experience through seamless navigation, efficient checkouts, and intuitive search functionalities. By combining Agile practices with clearly defined milestones, the I was able to prioritise work, adapt to changes, and hopefully produce a functional ecommerce website.
 
-*Need to add agile picture here*
+### Agile User Stories
+![product Page](/media/readme_images/agile.png)
 
 ## Features
 
