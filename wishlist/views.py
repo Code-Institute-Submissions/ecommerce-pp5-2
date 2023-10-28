@@ -12,9 +12,9 @@ def wishlist(request):
     if request.user.is_authenticated:
         user = request.user
         wishlist_items = Wishlist.objects.filter(user=user)
-        messages.info(request, 'This is your wishlist')
+        messages.success(request, 'This is your wishlist')
 
-        template = 'wishlist/wishlist.html'
+        template = 'wishlists/wishlist.html'
         context = {
             'user': user,
             'wishlist_items': wishlist_items,
@@ -22,7 +22,7 @@ def wishlist(request):
 
         return render(request, template, context)
     else:
-        messages.info(request, 'You need to be logged in to see your wish list')
+        messages.success(request, 'You need to be logged in to see your wish list')
         return HttpResponseRedirect(reverse('login'))
 
 
