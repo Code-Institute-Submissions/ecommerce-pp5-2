@@ -11,7 +11,7 @@ def wishlist(request):
     """Only for registered users"""
     if request.user.is_authenticated:
         user = request.user
-        wishlist_items = Wishlist.objects.filter(user=user)
+        wishlist_items = Wishlist.objects.filter(user=user).all()
         messages.success(request, 'This is your wishlist')
 
         template = 'wishlists/wishlist.html'
@@ -20,6 +20,7 @@ def wishlist(request):
             'wishlist_items': wishlist_items,
         }
 
+        print("Found wishlist item: ", wishlist_items)
         return render(request, template, context)
     else:
         messages.success(request, 'You need to be logged in to see your wish list')
@@ -38,7 +39,32 @@ def delete_from_wishlist(request, wishlist_id):
         item_to_delete = get_object_or_404(Wishlist, id=wishlist_id, user=request.user)
         item_to_delete.delete()
         messages.success(request, 'Item removed from wishlist')
-        print(messages.success)
+        
         return HttpResponseRedirect(reverse('wishlist'))
 
 
+def move_to_bag(request, item_id):
+    """Add product to the bag from the wishlist"""
+
+    product = get_object_or_404(Product, pk=item_id)
+
+    wishlist_item = get_object_or_404(
+        Wishlist, user=request.user, product=product)
+    print("Wishlist item to delete: ", wishlist_item.id)
+    print("Current user: ", request.user)
+    try:
+        wishlist_item.delete()
+    except Exception as e:
+        print("Error deleting item: ", e)
+    
+    bag = request.session.get('bag', {})
+    quantity = int(request.POST.get('quantity', 1))
+    if item_id in list(bag.keys()):
+        bag[item_id] += quantity
+    else:
+        bag[item_id] = quantity
+
+    request.session['bag'] = bag
+    messages.success(request, f'Added {product.name} to your bag from wishlist')
+
+    return HttpResponseRedirect(reverse('bag'))

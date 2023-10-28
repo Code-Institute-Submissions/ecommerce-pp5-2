@@ -70,6 +70,14 @@
                                     <input type="submit" value="Delete">
                                 </td>
                             </form> 
+                            <form method="post" action="{% url 'add_to_bag' item.product.id %}">
+                                {% csrf_token %}
+                                <td>
+                                    <input type="hidden" name="quantity" value="1">
+                                    <input type="submit" value="Add to Bag">
+                                    <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                                </td>
+                            </form>
                     </tr>
                     {% endfor %}
                 </table>
