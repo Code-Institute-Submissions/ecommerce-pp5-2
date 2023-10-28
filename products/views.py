@@ -5,8 +5,6 @@ from .models import Product, Category, Country, Region, Promotion
 from collections import defaultdict
 from django.template import engines
 
-print(engines['django'].engine.dirs)
-# Create your views here.
 
 
 def all_products(request):
