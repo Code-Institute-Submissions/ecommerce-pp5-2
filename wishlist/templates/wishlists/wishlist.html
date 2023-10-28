@@ -63,6 +63,13 @@
                             <p class="my-0">${{ item.product.price }}</p>
                             {% endif %}
                         </td>
+                            <form method="post" action="{% url 'delete_from_wishlist' item.id %}">
+                                {% csrf_token %}
+                                <td class="py3">
+                                    <input type="checkbox" name="delete_item" value="{{ item.id }}">
+                                    <input type="submit" value="Delete">
+                                </td>
+                            </form> 
                     </tr>
                     {% endfor %}
                 </table>
@@ -70,4 +77,8 @@
             {% endif %}
         </div>
     </div>
+{% endblock %}
+
+{% block postloadjs %}
+
 {% endblock %}

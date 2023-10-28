@@ -31,3 +31,14 @@ def add_to_wishlist(request, product_id):
         product = get_object_or_404(Product, id=product_id)
         Wishlist.objects.create(user=request.user, product=product)
         return HttpResponseRedirect(reverse('wishlist'))
+
+
+def delete_from_wishlist(request, wishlist_id):
+    if request.method == 'POST':
+        item_to_delete = get_object_or_404(Wishlist, id=wishlist_id, user=request.user)
+        item_to_delete.delete()
+        messages.success(request, 'Item removed from wishlist')
+        print(messages.success)
+        return HttpResponseRedirect(reverse('wishlist'))
+
+
