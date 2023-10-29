@@ -1,0 +1,20 @@
+<p class="my-0"><strong>{{ item.product.name }}</strong></p>
+<p class="my-0 small text-muted">{{ item.product.category }}</p>
+<p class="my-0 small text-muted">{{ item.product.country }}</p>
+<p class="my-0 small text-muted">{{ item.product.region }}</p>
+<p class="my-0 small text-muted">
+    SKU: {{ item.product.sku|upper }}
+</p>
+{% if item.product.promotion %}
+<p class="my-0">
+    <strong>Special offer: {{ item.product.promotion }}</strong>
+</p>
+{% else %}
+<p class="my-0 small text-muted"></p>
+{% endif %}
+
+    {% if item.product.promotion %}
+    <p class="my-0">${{ item.product.discounted_price }}</p>
+    {% else %}
+    <p class="my-0">${{ item.product.price }}</p>
+    {% endif %}
