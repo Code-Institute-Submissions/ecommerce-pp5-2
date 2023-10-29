@@ -35,50 +35,53 @@
                     </thead>
 
                     {% for item in wishlist_items %}
-                    <tr>
-                        <td class="py-3 w-25">
-                            <img class="img-thumbnail rounded" src="{{ item.product.image.url }}" style="max-width: 200px; height: auto;" />
-                        </td>
-                        <td class="py-3">
-                            <p class="my-0"><strong>{{ item.product.name }}</strong></p>
-                            <p class="my-0 small text-muted">{{ item.product.category }}</p>
-                            <p class="my-0 small text-muted">{{ item.product.country }}</p>
-                            <p class="my-0 small text-muted">{{ item.product.region }}</p>
-                            <p class="my-0 small text-muted">SKU: {{ item.product.sku|upper }}</p>
-                            {% if item.product.promotion %}
-                            <p class="my-0">
-                                <strong>Special offer: {{ item.product.promotion }}</strong>
-                            </p>
-                            {% else %}
-                            <p class="my-0 small text-muted"></p>
-                            {% endif %}
-                        </td>
-                        <td class="py-3">
-                            <a href="{% url 'product_detail' item.product.id %}" style="decoration: none;"><p class="my-0" style="max-width: 400px; height: 200px; overflow: hidden; text-overflow: clip;">{{ item.product.description }}</p></a>
-                        </td>
-                        <td class="py-3">
-                            {% if item.product.promotion %}
-                            <p class="my-0">${{ item.product.discounted_price }}</p>
-                            {% else %}
-                            <p class="my-0">${{ item.product.price }}</p>
-                            {% endif %}
-                        </td>
-                            <form method="post" action="{% url 'delete_from_wishlist' item.id %}">
-                                {% csrf_token %}
-                                <td class="py3">
+                        <tr>
+                            <td class="py-3 w-25">
+                                <img class="img-thumbnail rounded" src="{{ item.product.image.url }}" style="max-width: 200px; height: auto;" />
+                            </td>
+                            <td class="py-3">
+                                <p class="my-0"><strong>{{ item.product.name }}</strong></p>
+                                <p class="my-0 small text-muted">{{ item.product.category }}</p>
+                                <p class="my-0 small text-muted">{{ item.product.country }}</p>
+                                <p class="my-0 small text-muted">{{ item.product.region }}</p>
+                                <p class="my-0 small text-muted">SKU: {{ item.product.sku|upper }}</p>
+                                {% if item.product.promotion %}
+                                <p class="my-0">
+                                    <strong>Special offer: {{ item.product.promotion }}</strong>
+                                </p>
+                                {% else %}
+                                <p class="my-0 small text-muted"></p>
+                                {% endif %}
+                            </td>
+                            <td class="py-3">
+                                <a href="{% url 'product_detail' item.product.id %}" style="decoration: none;"><p class="my-0" style="max-width: 400px; height: 200px; overflow: hidden; text-overflow: clip;">{{ item.product.description }}</p></a>
+                            </td>
+                            <td class="py-3">
+                                {% if item.product.promotion %}
+                                <p class="my-0">${{ item.product.discounted_price }}</p>
+                                {% else %}
+                                <p class="my-0">${{ item.product.price }}</p>
+                                {% endif %}
+                            </td>
+                                <td class="py-3">
+                                    <form method="post" class="wishlist-form" data-delete-url="{% url 'delete_from_wishlist' item.id %}"
+                                        data-move-to-bag-url="{% url 'move_to_bag' item.product.id %}">
+                                        {% csrf_token %}
                                     <input type="checkbox" name="delete_item" value="{{ item.id }}">
-                                    <input type="submit" value="Delete">
+                                    <button type="submit" class="delete-item-btn">Delete</button>
+                                    </form>
                                 </td>
-                            </form> 
-                            <form method="post" action="{% url 'move_to_bag' item.product.id %}">
-                                {% csrf_token %}
-                                <td>
+                                <td class="py-3">
+                                    <form method="post" class="wishlist-form" data-delete-url="{% url 'delete_from_wishlist' item.id %}"
+                                        data-move-to-bag-url="{% url 'move_to_bag' item.product.id %}">
+                                        {% csrf_token %}
                                     <input type="hidden" name="quantity" value="1">
-                                    <input type="submit" value="Add to Bag">
+                                    <button type="submit" class="move-to-bag-btn">Add to Bag</button>
                                     <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                                    </form>
                                 </td>
-                            </form>
-                    </tr>
+                            
+                        </tr>
                     {% endfor %}
                 </table>
             </div>
@@ -88,5 +91,35 @@
 {% endblock %}
 
 {% block postloadjs %}
+
+<script>
+    document.addEventListener('DOMContentLoaded', (event) => {
+        const forms = document.querySelectorAll('.wishlist-form');
+
+        forms.forEach((form) => {
+            const deleteUrl = form.getAttribute('data-delete-url');
+            const moveToBagUrl = form.getAttribute('data-move-to-bag-url');
+            const deleteBtn = form.querySelector('.delete-item-btn');
+            const moveToBagBtn = form.querySelector('.move-to-bag-btn');
+
+            console.log("Form: ", form);
+            console.log("deleteUrl: ", deleteUrl);
+            console.log("moveToBagUrl: ", moveToBagUrl);
+            console.log("deleteBtn: ", deleteBtn);
+            console.log("moveToBagBtn: ", moveToBagBtn);
+            console.log("Form innerHTML: ", form.innerHTML);
+
+            deleteBtn.addEventListener('click', (e) => {
+                console.log("Delete button clicked");
+                form.action = deleteUrl;
+            });
+
+            moveToBagBtn.addEventListener('click', (e)=> {
+                console.log("Move to Bag button clicked");
+                form.action = moveToBagUrl;
+            });
+        });
+    });
+</script>
 
 {% endblock %}
