@@ -70,7 +70,7 @@
                                     <input type="submit" value="Delete">
                                 </td>
                             </form> 
-                            <form method="post" action="{% url 'add_to_bag' item.product.id %}">
+                            <form method="post" action="{% url 'move_to_bag' item.product.id %}">
                                 {% csrf_token %}
                                 <td>
                                     <input type="hidden" name="quantity" value="1">

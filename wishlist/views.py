@@ -49,26 +49,29 @@ def delete_from_wishlist(request, wishlist_id):
 
 def move_to_bag(request, item_id):
     """Add product to the bag from the wishlist"""
-
     product = get_object_or_404(Product, pk=item_id)
 
-    wishlist_item = get_object_or_404(
-        Wishlist, user=request.user, product=product)
-    print("Wishlist item to delete: ", wishlist_item.id)
-    print("Current user: ", request.user)
-    try:
-        wishlist_item.delete()
-    except Exception as e:
-        print("Error deleting item: ", e)
-    
+    wishlist_item = get_object_or_404(Wishlist, user=request.user, product=product)
+        
     bag = request.session.get('bag', {})
-    quantity = int(request.POST.get('quantity', 1))
-    if item_id in list(bag.keys()):
-        bag[item_id] += quantity
+    
+    if item_id in bag:
+        bag[item_id]['quantity'] = bag[item_id]['quantity'] + 1
     else:
-        bag[item_id] = quantity
-
+        bag[item_id] = {
+            'quantity': 1,
+            'price': float(product.price)
+        }
+   
     request.session['bag'] = bag
-    messages.success(request, f'Added {product.name} to your bag from wishlist')
+    wishlist_item.delete()
 
-    return HttpResponseRedirect(reverse('bag'))
+    return redirect('view_bag')
+
+
+    
+
+
+   
+
+    
