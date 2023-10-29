@@ -1,9 +1,16 @@
 {% extends "base.html" %}
 
+{% load static %}
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'blog/blog.css' %}">
+{% endblock %}
+
 {% block content %}
     <div class="container-fluid">
         <div class="row">
             <!-- Blog Entries Column -->
+            <div class="overlay"></div>
+            <h1>The Wine Society's Blog</h1>
             <div class="col-12 mt-3 left">
                 <div class="row">
                 {% for post in post_list %}
@@ -23,9 +30,6 @@
                                 </div>
                                 <a href="{% url 'post_content' post.slug %}" class="post-link">
                                     <h2 class="card-title">{{ post.title }}</h2>
-                                    <div class="summary-container">
-                                        <p class="card-text">{{ post.summary }}</p>
-                                    </div>
                                 </a>
                                 <hr />
                                 <p class="card-text text-muted-h6">{{ post.created_on }}</p>

@@ -1,0 +1,108 @@
+
+.card {
+    border: none;
+    background-color: transparent;
+    
+}
+
+.card-img-top {
+    max-width: 300px;
+    max-height: 300px;
+}
+
+.summary-container {
+    max-height: 200px;
+    overflow: hidden;
+}
+
+.image-container {
+    position: relative;
+    overflow: hidden;
+}
+
+.image-flash {
+    position: absolute;
+    bottom: 5%;
+    min-width: 30%;
+    left: -2px;
+    background-color: #23BBBB;
+}
+
+.author {
+    color: white;
+    margin: 4px;
+    text-transform: uppercase;
+}
+
+.masthead {
+
+    overflow: hidden;
+    position: relative;
+    display: inline-block;
+    height: 33vh;
+    width: 100%;
+}
+
+.masthead-text {
+    background-color: #445261;
+    color: white;
+    position: relative;
+}
+
+.masthead-image {
+    position: relative;
+    overflow: hidden;
+}
+
+.post-link {
+    text-decoration: none;
+    color: #445261;
+}
+
+.post-link:hover,
+.page-link {
+    color: #1034e8;
+}
+
+
+.post-subtitle {
+    margin-left: 5%;
+    color: lightgray;
+}
+
+
+.link {
+    color: #23BBBB;
+    text-decoration: none;
+}
+
+.link:hover,
+.link:active {
+    color: #445261;
+    text-decoration: underline;
+}
+
+
+.flex-container {
+    display: flex;
+    padding: 20px;
+}
+
+
+.flex-item {
+    flex: 1;
+}
+
+.text-content {
+    padding-right: 20px;
+}
+
+.image-content {
+    padding-left: 20px;
+}
+
+.full-width-image {
+    max-height: 500px;
+    width: auto;
+    
+}

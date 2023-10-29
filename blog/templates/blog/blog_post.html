@@ -1,48 +1,36 @@
-{% extends 'base.html' %} 
-{% load static % }
+{% extends 'base.html' %}
 
-{% block page_header %}
-<!-- Not pushing down the blog -->
-<div class="container header-container">
-    <div class="row">
-        <div class="col"></div>
-    </div>
-</div>
+{% load static %}
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'blog/blog.css' %}">
 {% endblock %}
 
+
+
 {% block content %}
-<!-- not removing the background -->
 <div class="overlay"></div>
-<div class="masthead">
-    <div class="container-fluid overlay">
+<div class="container-fluid">
+    <div class="masthead">
         <div class="row g-0">
             <div class="col-md-6 masthead-text">
                 <h1 class="post-title">{{ post.title }}</h1>
                 <p class="post-subtitle">{{ post.author }} | {{ post.created_on }}</p>
             </div>
-            <div class="d-none d-md-block col-md-6 masthead-image">
-                {% if "placeholder" in post.featured_image.url %}
-                <img src="{{ post.hero_image.url }}" width="100%">
-                {% else %}
-                <img src="{{ post.hero_image.url }}" width="100%">
-                {% endif %}
-            </div>
-        </div>
-    </div>
-</div>
-<div class="container">
-    <div class="row">
-        <div class="col card mb-4  mt-3 left  top">
-            <div class="card-body">
-                <p class="card-text ">{{ post.content | safe }}</p>
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col">
-            <hr>
         </div>
     </div>
 </div>
 
-{% endblock content %}
+<div class="flex-container">
+    <div class="flex-item">
+        <div>
+            <p>{{ post.content | safe }}</p>
+        </div>
+    </div>
+    <div class="flex-item image-content">
+        <div class="d-none d-md-block masthead-image">
+            <img src="{{ post.hero_image.url }}" class="full-width-image">
+        </div>
+    </div>
+</div>
+
+{% endblock %}w
