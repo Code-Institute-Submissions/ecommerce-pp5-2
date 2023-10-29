@@ -18,3 +18,4 @@ urlpatterns = [
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 handler404 = 'the_wine_society.views.handler404'
+handler404 = 'the_wine_society.views.handler500'
