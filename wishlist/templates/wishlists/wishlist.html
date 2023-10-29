@@ -64,23 +64,20 @@
                                 {% endif %}
                             </td>
                                 <td class="py-3">
-                                    <form method="post" class="wishlist-form" data-delete-url="{% url 'delete_from_wishlist' item.id %}"
-                                        data-move-to-bag-url="{% url 'move_to_bag' item.product.id %}">
+                                    <form method="post" class="wishlist-form" data-delete-url="{% url 'delete_from_wishlist' item.id %}">
                                         {% csrf_token %}
-                                    <input type="checkbox" name="delete_item" value="{{ item.id }}">
-                                    <button type="submit" class="delete-item-btn">Delete</button>
+                                            <input type="checkbox" name="delete_item" value="{{ item.id }}">
+                                            <button type="submit" class="delete-item-btn">Delete</button>
                                     </form>
                                 </td>
                                 <td class="py-3">
-                                    <form method="post" class="wishlist-form" data-delete-url="{% url 'delete_from_wishlist' item.id %}"
-                                        data-move-to-bag-url="{% url 'move_to_bag' item.product.id %}">
+                                    <form method="post" class="wishlist-form" data-move-to-bag-url="{% url 'move_to_bag' item.product.id %}">
                                         {% csrf_token %}
-                                    <input type="hidden" name="quantity" value="1">
-                                    <button type="submit" class="move-to-bag-btn">Add to Bag</button>
-                                    <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                                            <input type="hidden" name="quantity" value="1">
+                                            <button type="submit" class="move-to-bag-btn">Add to Bag</button>
+                                            <input type="hidden" name="redirect_url" value="{{ request.path }}">
                                     </form>
-                                </td>
-                            
+                                </td>       
                         </tr>
                     {% endfor %}
                 </table>
@@ -88,38 +85,51 @@
             {% endif %}
         </div>
     </div>
+
+
+
 {% endblock %}
 
 {% block postloadjs %}
-
 <script>
     document.addEventListener('DOMContentLoaded', (event) => {
-        const forms = document.querySelectorAll('.wishlist-form');
+            const wishlistForms = document.querySelectorAll('.wishlist-form');
 
-        forms.forEach((form) => {
-            const deleteUrl = form.getAttribute('data-delete-url');
-            const moveToBagUrl = form.getAttribute('data-move-to-bag-url');
-            const deleteBtn = form.querySelector('.delete-item-btn');
-            const moveToBagBtn = form.querySelector('.move-to-bag-btn');
+            wishlistForms.forEach((form) => {
+                const deleteUrl = form.getAttribute('data-delete-url');
+                const moveToBagUrl = form.getAttribute('data-move-to-bag-url');
 
-            console.log("Form: ", form);
-            console.log("deleteUrl: ", deleteUrl);
-            console.log("moveToBagUrl: ", moveToBagUrl);
-            console.log("deleteBtn: ", deleteBtn);
-            console.log("moveToBagBtn: ", moveToBagBtn);
-            console.log("Form innerHTML: ", form.innerHTML);
+                const deleteBtn = form.querySelector('.delete-item-btn');
+                const moveToBagBtn = form.querySelector('.move-to-bag-btn');
 
-            deleteBtn.addEventListener('click', (e) => {
-                console.log("Delete button clicked");
-                form.action = deleteUrl;
-            });
+                console.log("Form: ", form);
+                console.log("deleteUrl: ", deleteUrl);
+                console.log("moveToBagUrl: ", moveToBagUrl);
+                console.log("deleteBtn: ", deleteBtn);
+                console.log("moveToBagBtn: ", moveToBagBtn);
 
-            moveToBagBtn.addEventListener('click', (e)=> {
-                console.log("Move to Bag button clicked");
-                form.action = moveToBagUrl;
+                if (deleteBtn) {
+                    deleteBtn.addEventListener('click', (e) => {
+                        console.log("Delete button clicked");
+                        form.action = deleteUrl;
+                    });
+                }
+
+                if (moveToBagBtn) {
+                    moveToBagBtn.addEventListener('click', (e) => {
+                        console.log("Move to Bag button clicked");
+                        form.action = moveToBagUrl;
+                    });
+                }
             });
         });
-    });
 </script>
 
 {% endblock %}
+
+
+
+
+
+
+
