@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /accounts/
+Disallow: /bag/
+Sitemap: https://the-wine-society-01e133d06325.herokuapp.com/sitemap.xml

@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+
+<url>
+  <loc>https://the-wine-society-01e133d06325.herokuapp.com/</loc>
+  <lastmod>2023-10-29T22:37:23+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>https://the-wine-society-01e133d06325.herokuapp.com/accounts/signup/</loc>
+  <lastmod>2023-10-29T22:37:23+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://the-wine-society-01e133d06325.herokuapp.com/accounts/login/</loc>
+  <lastmod>2023-10-29T22:37:23+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://the-wine-society-01e133d06325.herokuapp.com/bag/</loc>
+  <lastmod>2023-10-29T22:37:23+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://the-wine-society-01e133d06325.herokuapp.com/products/?category=Red</loc>
+  <lastmod>2023-10-29T22:37:23+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://the-wine-society-01e133d06325.herokuapp.com/products/?category=White</loc>
+  <lastmod>2023-10-29T22:37:23+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://the-wine-society-01e133d06325.herokuapp.com/products/?category=Rose</loc>
+  <lastmod>2023-10-29T22:37:23+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://the-wine-society-01e133d06325.herokuapp.com/products/?category=Sparkling</loc>
+  <lastmod>2023-10-29T22:37:23+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://the-wine-society-01e133d06325.herokuapp.com/products/?category=Sweet</loc>
+  <lastmod>2023-10-29T22:37:23+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://the-wine-society-01e133d06325.herokuapp.com/products/?category=Fortified</loc>
+  <lastmod>2023-10-29T22:37:23+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://the-wine-society-01e133d06325.herokuapp.com/products/</loc>
+  <lastmod>2023-10-29T22:37:23+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://the-wine-society-01e133d06325.herokuapp.com/products/?country=France</loc>
+  <lastmod>2023-10-29T22:37:23+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://the-wine-society-01e133d06325.herokuapp.com/products/?country=USA</loc>
+  <lastmod>2023-10-29T22:37:23+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://the-wine-society-01e133d06325.herokuapp.com/products/?country=Spain</loc>
+  <lastmod>2023-10-29T22:37:23+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://the-wine-society-01e133d06325.herokuapp.com/products/?country=Italy</loc>
+  <lastmod>2023-10-29T22:37:23+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://the-wine-society-01e133d06325.herokuapp.com/products/?country=Portugal</loc>
+  <lastmod>2023-10-29T22:37:23+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://the-wine-society-01e133d06325.herokuapp.com/products/?country=Argentina</loc>
+  <lastmod>2023-10-29T22:37:23+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://the-wine-society-01e133d06325.herokuapp.com/products/?country=South%20Africa</loc>
+  <lastmod>2023-10-29T22:37:23+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://the-wine-society-01e133d06325.herokuapp.com/products/?country=Germany</loc>
+  <lastmod>2023-10-29T22:37:23+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://the-wine-society-01e133d06325.herokuapp.com/products/?country=Australia</loc>
+  <lastmod>2023-10-29T22:37:23+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://the-wine-society-01e133d06325.herokuapp.com/products/?country=New%20Zealand</loc>
+  <lastmod>2023-10-29T22:37:23+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://the-wine-society-01e133d06325.herokuapp.com/products/?country=Chile</loc>
+  <lastmod>2023-10-29T22:37:23+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://the-wine-society-01e133d06325.herokuapp.com/products/?country=Greece</loc>
+  <lastmod>2023-10-29T22:37:23+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://the-wine-society-01e133d06325.herokuapp.com/products/?region=Alsace</loc>
+  <lastmod>2023-10-29T22:37:23+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://the-wine-society-01e133d06325.herokuapp.com/products/?region=Bordeaux</loc>
+  <lastmod>2023-10-29T22:37:23+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://the-wine-society-01e133d06325.herokuapp.com/products/?region=Burgundy</loc>
+  <lastmod>2023-10-29T22:37:23+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://the-wine-society-01e133d06325.herokuapp.com/products/?region=Champagne</loc>
+  <lastmod>2023-10-29T22:37:23+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://the-wine-society-01e133d06325.herokuapp.com/products/?region=Rhone</loc>
+  <lastmod>2023-10-29T22:37:23+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://the-wine-society-01e133d06325.herokuapp.com/products/?region=Colchagua%20Valley</loc>
+  <lastmod>2023-10-29T22:37:23+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://the-wine-society-01e133d06325.herokuapp.com/products/?region=Marlborough</loc>
+  <lastmod>2023-10-29T22:37:23+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://the-wine-society-01e133d06325.herokuapp.com/products/?region=Douro</loc>
+  <lastmod>2023-10-29T22:37:23+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://the-wine-society-01e133d06325.herokuapp.com/products/?region=Sancerre</loc>
+  <lastmod>2023-10-29T22:37:23+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://the-wine-society-01e133d06325.herokuapp.com/products/?promotion=Bin%20end</loc>
+  <lastmod>2023-10-29T22:37:23+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://the-wine-society-01e133d06325.herokuapp.com/products/?promotion=Autumn%20Sale</loc>
+  <lastmod>2023-10-29T22:37:23+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://the-wine-society-01e133d06325.herokuapp.com/accounts/password/reset/</loc>
+  <lastmod>2023-10-29T22:37:23+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://the-wine-society-01e133d06325.herokuapp.com/products/10</loc>
+  <lastmod>2023-10-29T22:37:23+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://the-wine-society-01e133d06325.herokuapp.com/products/11</loc>
+  <lastmod>2023-10-29T22:37:23+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://the-wine-society-01e133d06325.herokuapp.com/products/5</loc>
+  <lastmod>2023-10-29T22:37:23+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://the-wine-society-01e133d06325.herokuapp.com/products/6</loc>
+  <lastmod>2023-10-29T22:37:23+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://the-wine-society-01e133d06325.herokuapp.com/products/7</loc>
+  <lastmod>2023-10-29T22:37:23+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://the-wine-society-01e133d06325.herokuapp.com/products/8</loc>
+  <lastmod>2023-10-29T22:37:23+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://the-wine-society-01e133d06325.herokuapp.com/products/9</loc>
+  <lastmod>2023-10-29T22:37:23+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://the-wine-society-01e133d06325.herokuapp.com/products/12</loc>
+  <lastmod>2023-10-29T22:37:23+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://the-wine-society-01e133d06325.herokuapp.com/products/13</loc>
+  <lastmod>2023-10-29T22:37:23+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://the-wine-society-01e133d06325.herokuapp.com/products/14</loc>
+  <lastmod>2023-10-29T22:37:23+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://the-wine-society-01e133d06325.herokuapp.com/products/15</loc>
+  <lastmod>2023-10-29T22:37:23+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://the-wine-society-01e133d06325.herokuapp.com/products/16</loc>
+  <lastmod>2023-10-29T22:37:23+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://the-wine-society-01e133d06325.herokuapp.com/products/17</loc>
+  <lastmod>2023-10-29T22:37:23+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+
+
+</urlset>

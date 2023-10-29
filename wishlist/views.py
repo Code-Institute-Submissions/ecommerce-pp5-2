@@ -71,16 +71,8 @@ def move_to_bag(request, item_id):
             'quantity': 1,
             'price': float(product.price)
         }
-   
+        
     request.session['bag'] = bag
     wishlist_item.delete()
 
     return redirect('view_bag')
-
-
-    
-
-
-   
-
-    
