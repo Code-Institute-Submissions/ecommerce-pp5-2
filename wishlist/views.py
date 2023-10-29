@@ -12,7 +12,7 @@ def wishlist(request):
     if request.user.is_authenticated:
         user = request.user
         wishlist_items = Wishlist.objects.filter(user=user).all()
-        messages.success(request, 'This is your wishlist')
+        # messages.success(request, 'This is your wishlist')
 
         template = 'wishlists/wishlist.html'
         context = {
@@ -30,7 +30,16 @@ def add_to_wishlist(request, product_id):
     if request.user.is_authenticated:
         if request.method == 'POST':
             product = get_object_or_404(Product, id=product_id)
-            Wishlist.objects.create(user=request.user, product=product)
+
+            check_wishlist = Wishlist.objects.filter(
+                user=request.user, product=product).exists()
+
+            if not check_wishlist:
+                Wishlist.objects.create(user=request.user, product=product)
+                messages.success(request, 'Producted added to wishlist')
+            else:
+                messages.warning(request, 'Product already exsists in your wishlist')
+
             return HttpResponseRedirect(reverse('wishlist'))
     else:
         messages.success(
@@ -42,7 +51,7 @@ def delete_from_wishlist(request, wishlist_id):
     if request.method == 'POST':
         item_to_delete = get_object_or_404(Wishlist, id=wishlist_id, user=request.user)
         item_to_delete.delete()
-        messages.success(request, 'Item removed from wishlist')
+        # messages.success(request, 'Item removed from wishlist')
         
         return HttpResponseRedirect(reverse('wishlist'))
 

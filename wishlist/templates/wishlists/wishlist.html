@@ -66,8 +66,7 @@
                                 <td class="py-3">
                                     <form method="post" class="wishlist-form" data-delete-url="{% url 'delete_from_wishlist' item.id %}">
                                         {% csrf_token %}
-                                            <input type="checkbox" name="delete_item" value="{{ item.id }}">
-                                            <button type="submit" class="delete-item-btn">Delete</button>
+                                            <button type="submit" class="delete-item-btn" value="{{ item.id }}">Delete</button>
                                     </form>
                                 </td>
                                 <td class="py-3">
