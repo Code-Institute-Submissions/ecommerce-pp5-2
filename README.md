@@ -239,7 +239,7 @@ The live site canbe found here: https://the-wine-society-01e133d06325.herokuapp.
 ## Bugs
 
 I have discovered 10 minutes before deployment  that my small screen media css is not working on the deployed app. It working on my development side. To late to fix it.
-
+Below is the development image.
 <details>
 
 ![Small screen ](/media/readme_images/ccs_codeanywhere.png)
