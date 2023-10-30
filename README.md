@@ -41,14 +41,19 @@ This a business to customer business, B to C modle, built around a community. Th
 ### Wireframes
 
 Before using Balsamiq to layout my design, I prefer to utilize simple hand drawn sketches to develop my websites. To have a better understanding of the design and functionality, I took some time to examine and dissect other websites that I found enjoyable.
+
+<details>
+
 ### Product Page
- ![product Page](/media/readme_images/product.png)
+
+![product Page](/media/readme_images/product.png)
 
  ### Shop
 ![product Page](/media/readme_images/Shop.png)
 
 ### Basket
 ![product Page](/media/readme_images/basket.png)
+</details>
 
 ### Agile Development
 
@@ -87,16 +92,6 @@ As the user scrolls down, they will see bold images with links to different sect
 
 #### Sign up
 
-### Blog
-
-A wine blog can be a useful marketing tool for an online wine shop in a number of ways. First, it can help the owner to educate customers about the different aspects of wine, such as regions, styles, and varieties. This can help customers to make more informed choices when purchasing wine from the shop.
-
-A wine blog can help to promote the wine shop to new customers. By publishing high-quality blog posts that are relevant to a target audience, you can attract visitors to the website and encourage them to learn more about the business. It can also help to build relationships with customers. By sharing interesting and useful information about wine, the owner can show customers that they are knowledgeable and passionate about the product they sell.
-
-An example of blog post could be about different types of wine that are for sale, discussing a particular region or variety available in the store. You could also write about specific winemakers and wineries. The owner could blog about wine and food parings or wine tasting events. Provide a tips and advice section.
-
-A wine blog can be used to populate other marketing channels, such as Facebook and Instagram, with engaging and informative content. Additionally, Google places higher ranking on authoritative sources, so a regularly updated blog can assist the overall business with SEO rankings.
-
 ### Images
 
 ### Color Scheme
@@ -123,16 +118,34 @@ A wine blog can be used to populate other marketing channels, such as Facebook a
 - Elephant SQL
 - Amazon Web Services
 - Stripe
--
+
 
 ## Marketing
-Leveraging both Facebook and a dedicated blog, I aim to create a dynamic online presence for my wine shop. Facebook is invaluable for real-time engagement, where the owener can post daily updates on new arrivals, special promotions, and upcoming tasting events. The blog, on the other hand, serves as a platform for more in-depth content, including wine pairing guides and interviews with vineyard owners. Together, these platcforms not only attract new customers but also build a community of wine enthusiasts.
+Leveraging both Facebook and a dedicated blog, I aim to create a dynamic online presence for my wine shop. Facebook is invaluable for real-time engagement, where the I can post daily updates on new arrivals, special promotions, and upcoming tasting events.
+<details>
+  <summary>Blog screenshots</summary>
+
+  ### Facebook
+  
+  ![facebook Screenshot 1](media/readme_images/facebook_bus.png)
+  ![facebook Screenshot 1](media/readme_images/facebook_bus_2.png)
+</details>
+
+### Blog
+
+The blog, on the other hand, serves as a platform for more in-depth content, including wine pairing guides and interviews with vineyard owners. Together, these platcforms not only attract new customers but also build a community of wine enthusiasts.
+
+A wine blog can be used to populate other marketing channels, such as Facebook and Instagram, with engaging and informative content. Additionally, Google places higher ranking on authoritative sources, so a regularly updated blog can assist the overall business with SEO rankings.
 
 <details>
-<summary>Facebook page screenshots</summary>
-![Facebook screenshot 1](/media/readme_images/facebook_bus.png)
-![Facebook screenshot 2](/media/readme_images/facebook_bus_2.png)
+  <summary>Facebook page screenshots</summary>
+
+### Blog
+  
+  ![blog Screenshot 1](media/readme_images/blog_cover.png)
+  ![blog Screenshot 2](media/readme_images/blog_details.png)
 </details>
+
 
 ## Testing
 
