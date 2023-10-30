@@ -10,8 +10,6 @@
 {% endblock %}
 
 {% block content %}
-<!-- MAIN PAGE HEADER  -->
-<!-- To review overlay as I might move background image to index.html -->
 <div class="overlay"></div>
 <div class="container-fluid">
     <div class="row">
@@ -44,11 +42,14 @@
                 {% endif %}
                 <hr>
                     <p class="mt-3">{{ product.description }}</p>
-                    <form class="form" action="{% url 'add_to_wishlist' product.id %}" method="POST">
-                        {% csrf_token %}
-                        <button type="submit">Add to your wishlist</button>
-                    <!-- <p class="mt-3"><a href=""><i class="fa-solid fa-heart wish i-wish"></i>Add to your wishlist</p></a> -->
-                    </form>
+                        <form class="form" action="{% url 'add_to_wishlist' product.id %}" method="POST">
+                            {% csrf_token %}
+                            <button type="submit" class="btn wish-btn">
+                                <span>
+                                    <i class="fa-solid fa-heart"> Add to Wishlist</i>
+                                </span>
+                            </button>
+                        </form>
                     <form class="form" action="{% url 'add_to_bag' product.id %}" method="POST">
                         {% csrf_token %}
                         <div class="form-row">

@@ -9,7 +9,9 @@
     </div>
 </div>
 
-{% endblock %} {% block content %}
+{% endblock %} 
+
+{% block content %}
 <div class="overlay"></div>
 <div class="container-fluid">
     <div class="row">
@@ -33,7 +35,6 @@
                             <th scope="col">Price</th>
                         </tr>
                     </thead>
-
                     {% for item in wishlist_items %}
                         <tr>
                             <td class="py-3 w-25">
@@ -58,29 +59,34 @@
                             </td>
                             <td class="py-3">
                                 {% if item.product.promotion %}
-                                <p class="my-0">${{ item.product.discounted_price }}</p>
-                                {% else %}
-                                <p class="my-0">${{ item.product.price }}</p>
+                                    <p class="my-0">${{ item.product.discounted_price }}</p>
+                                    {% else %}
+                                    <p class="my-0">${{ item.product.price }}</p>
                                 {% endif %}
                             </td>
-                                <td class="py-3">
-                                    <form method="post" class="wishlist-form" data-delete-url="{% url 'delete_from_wishlist' item.id %}">
-                                        {% csrf_token %}
-                                            <button type="submit" class="delete-item-btn" value="{{ item.id }}">Delete</button>
-                                    </form>
-                                </td>
-                                <td class="py-3">
-                                    <form method="post" class="wishlist-form" data-move-to-bag-url="{% url 'move_to_bag' item.product.id %}">
-                                        {% csrf_token %}
-                                            <input type="hidden" name="quantity" value="1">
-                                            <button type="submit" class="move-to-bag-btn">Add to Bag</button>
-                                            <input type="hidden" name="redirect_url" value="{{ request.path }}">
-                                    </form>
-                                </td>       
+                            <td class="py-3">
+                                <form method="post" class="wishlist-form" data-delete-url="{% url 'delete_from_wishlist' item.id %}">
+                                    {% csrf_token %}
+                                        <button type="submit" class="btn btn-danger delete-item-btn" value="{{ item.id }}">Delete</button>
+                                </form>
+                            </td>
+                            <td class="py-3">
+                                <form method="post" class="wishlist-form" data-move-to-bag-url="{% url 'move_to_bag' item.product.id %}">
+                                    {% csrf_token %}
+                                        <input type="hidden" name="quantity" value="1">
+                                        <button type="submit" class="btn btn-success move-to-bag-btn">Add to Bag</button>
+                                        <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                                </form>
+                            </td>
                         </tr>
-                    {% endfor %}
-                </table>
-            </div>
+                        {% endfor %}
+                    </table>
+                </div>
+                {% else %}
+                <div class="text-center">
+                    <h4>Wishlist is empty</h4>
+                    <a href="{% url 'products' %}" class="btn btn-primary">Back to Products</a>
+                </div>
             {% endif %}
         </div>
     </div>
@@ -100,12 +106,6 @@
 
                 const deleteBtn = form.querySelector('.delete-item-btn');
                 const moveToBagBtn = form.querySelector('.move-to-bag-btn');
-
-                console.log("Form: ", form);
-                console.log("deleteUrl: ", deleteUrl);
-                console.log("moveToBagUrl: ", moveToBagUrl);
-                console.log("deleteBtn: ", deleteBtn);
-                console.log("moveToBagBtn: ", moveToBagBtn);
 
                 if (deleteBtn) {
                     deleteBtn.addEventListener('click', (e) => {

@@ -8,7 +8,7 @@ from products.models import Product
 
 
 def wishlist(request):
-    """Only for registered users"""
+    """Only for registered users can add to wish list"""
     if request.user.is_authenticated:
         user = request.user
         wishlist_items = Wishlist.objects.filter(user=user).all()
@@ -27,6 +27,7 @@ def wishlist(request):
 
 
 def add_to_wishlist(request, product_id):
+    """Add to wishlist"""
     if request.user.is_authenticated:
         if request.method == 'POST':
             product = get_object_or_404(Product, id=product_id)
@@ -48,16 +49,19 @@ def add_to_wishlist(request, product_id):
 
 
 def delete_from_wishlist(request, wishlist_id):
+    """Delete item from wish list"""
     if request.method == 'POST':
         item_to_delete = get_object_or_404(Wishlist, id=wishlist_id, user=request.user)
         item_to_delete.delete()
-        # messages.success(request, 'Item removed from wishlist')
         
         return HttpResponseRedirect(reverse('wishlist'))
 
 
 def move_to_bag(request, item_id):
-    """Add product to the bag from the wishlist"""
+    """
+    Add product to the bag from the wishlist 
+    and delete from wishlist
+    """
     product = get_object_or_404(Product, pk=item_id)
 
     wishlist_item = get_object_or_404(Wishlist, user=request.user, product=product)

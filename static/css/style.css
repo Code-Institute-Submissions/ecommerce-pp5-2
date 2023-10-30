@@ -222,6 +222,13 @@ input[name="q"]::placeholder {
   width: 1.5rem;
 }
 
+.wish-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: rgb(238, 11, 11);
+}
+
 /* Modal */
 
 .modal-body {
@@ -250,7 +257,7 @@ input[name="q"]::placeholder {
   left: 0;
   width: 30%;
   height: 100%;
-  z-index: 1;
+  z-index: 2;
 }
 
 .popup {
@@ -279,7 +286,7 @@ input[name="q"]::placeholder {
   position: absolute;
   justify-content: center;
   top: 50%;
-  left: 50%;
+  left: 0;
   transform: translate(-50%, -50%) scale(0);
   transition: transform ease-out 500ms;
 }
@@ -299,7 +306,7 @@ input[name="q"]::placeholder {
   padding: 5px 5px;
   border-radius: 5px;
   background: rgb(191, 191, 191);
-  bottom: 0;
+  bottom: 50%;
   left: 0;
   white-space: nowrap;
   transform: scale(0);
@@ -308,8 +315,8 @@ input[name="q"]::placeholder {
 
 .add-bag[data-toggle]:hover::after {
   transform: scale(1);
-  bottom: 0%;
-  left: 160%;
+  bottom: auto;
+  left: -290%;
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
 
@@ -334,8 +341,8 @@ input[name="q"]::placeholder {
 
 .view[data-toggle]:hover::after {
   transform: scale(1);
-  bottom: -50%;
-  left: 160%;
+  bottom: auto;
+  left: 0%;
 }
 
 .love[data-toggle] {
