@@ -12,7 +12,7 @@
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="wine-link">
                 {% for category in categories %}
-                <a href="{% url 'products' %}?category={{ category.name }}" class="dropdown-item">{{ category.name }}</a>
+                <a href="{% url 'products' %}?category={{ category.name|urlencode }}" class="dropdown-item">{{ category.name }}</a>
                 {% endfor %}
                 <hr>
                 <a href="{% url 'products' %}" class="dropdown-item">All products</a>
@@ -25,7 +25,7 @@
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="country-link">
                 {% for country in countries %}
-                <a href="{% url 'products' %}?country={{ country.name }}" class="dropdown-item">{{ country.name }}</a>
+                <a href="{% url 'products' %}?country={{ country.name|urlencode }}" class="dropdown-item">{{ country.name }}</a>
                 {% endfor %}
             </div>
         </li>
@@ -36,7 +36,7 @@
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="region-link">
                 {% for region in regions %}
-                <a href="{% url 'products' %}?region={{ region.name }}" class="dropdown-item">{{ region.name }}</a>
+                <a href="{% url 'products' %}?region={{ region.name|urlencode }}" class="dropdown-item">{{ region.name }}</a>
                 {% endfor %}
             </div>
         </li>
@@ -48,7 +48,7 @@
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="specials-link">
                 {% for promotion in promotions %}
-                    <a href="{% url 'products' %}?promotion={{ promotion.name }}" class="dropdown-item">{{ promotion.name }}</a>
+                    <a href="{% url 'products' %}?promotion={{ promotion.name|urlencode }}" class="dropdown-item">{{ promotion.name }}</a>
                 {% endfor %}
             </div>
         </li>

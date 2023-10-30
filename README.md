@@ -34,7 +34,7 @@ This website is a specialist shop, with a wine club. A place for wine enthusiast
 
 ## Business Model
 
-This a business to customer business, B to C modle, built around a community. The site will offer a traditional retail experience, with the goal of engaging customers who are interested in the product and want to learn more about its background, attend tastings, and hear talks from winemakers and other industry specialists. The wine club will produce informative and engaging blog posts, host wine tasting events, and offer member discounts and monthly wine samples curated around themes and events.  The club will offer a subscription service to provide customers with a convenient and hassle-free way to discover and enjoy new wines. The business will also offer products related to wine, including wine glasses, decanters, wine opener, and other related products.  
+This a business to customer business, B to C model, built around a community. The site will offer a traditional retail experience, with the goal of engaging customers who are interested in the product and want to learn more about its background, attend tastings, and hear talks from winemakers and other industry specialists. The wine club will produce informative and engaging blog posts, host wine tasting events, and offer member discounts and monthly wine samples curated around themes and events.  The club will offer a subscription service to provide customers with a convenient and hassle-free way to discover and enjoy new wines. The business will also offer products related to wine, including wine glasses, decanters, wine opener, and other related products.  
 
 ## Preparation
 
@@ -72,33 +72,47 @@ The homepage will feature a large hero image, with the title of the business. Th
 
 As the user scrolls down, they will see bold images with links to different sections of the shop. For example, a "Bold Reds" image would bring the user to a curated selection of red wines. The homepage will also contain links to the blog and wine club, with information about upcoming events.
 
-*insert screenshot of homepage*
+![Home page](media/readme_images/homepage.png)
 
-### Shop
+## Shop
 
-*Will need to reorder*
+### Product Page
 
-#### Product Image
+<details>
 
-#### Category selection / Search
+<summary>Product Page</summary>
 
-#### Product detail
+![Product page](media/readme_images/product_page.png)
 
-#### Pricing
+</details>
 
-#### Shopping bag
+### Product detail
 
-#### Checkout
+<details>
+<summary>Product Details</summary>
 
-#### Sign up
+![Product page](media/readme_images/product_details.png)
 
-### Images
+</details>
 
-### Color Scheme
+### Shopping bag
 
-### Typography
+<details>
+<summary>Shopping Bag</summary>
 
-### Site management
+![Product page](media/readme_images/shopping_bag.png)
+
+</details>
+
+### Checkout
+
+<details>
+<summary>Checkout</summary>
+
+![Product page](media/readme_images/checkout_site.png)
+
+</details>
+
 
 ## Technologies*
 
@@ -123,7 +137,7 @@ As the user scrolls down, they will see bold images with links to different sect
 ## Marketing
 Leveraging both Facebook and a dedicated blog, I aim to create a dynamic online presence for my wine shop. Facebook is invaluable for real-time engagement, where the I can post daily updates on new arrivals, special promotions, and upcoming tasting events.
 <details>
-  <summary>Blog screenshots</summary>
+  <summary>Facebook page screenshots</summary>
 
   ### Facebook
   
@@ -138,7 +152,7 @@ The blog, on the other hand, serves as a platform for more in-depth content, inc
 A wine blog can be used to populate other marketing channels, such as Facebook and Instagram, with engaging and informative content. Additionally, Google places higher ranking on authoritative sources, so a regularly updated blog can assist the overall business with SEO rankings.
 
 <details>
-  <summary>Facebook page screenshots</summary>
+  <summary>blog page screenshots</summary>
 
 ### Blog
   
@@ -149,6 +163,36 @@ A wine blog can be used to populate other marketing channels, such as Facebook a
 
 ## Testing
 
+The website was tested for markup and CSS validation along with javascript, responsive design.
+
+The python code was run through Code Institute's Pep8 Linter to check for errors. It passed with no errors expect for line length.
+- Products models
+Results:
+50: E501 line too long (91 > 79 characters)
+96: E501 line too long (85 > 79 characters)
+98: E501 line too long (84 > 79 characters)
+
+- Checkout Webhook and webhook handler
+81: E501 line too long (80 > 79 characters)
+82: E501 line too long (80 > 79 characters)
+83: E501 line too long (80 > 79 characters)
+111: E501 line too long (89 > 79 characters)
+119: E501 line too long (107 > 79 characters)
+163: E501 line too long (93 > 79 characters)
+
+- Checkout models
+15: E501 line too long (122 > 79 characters)
+26: E501 line too long (94 > 79 characters)
+27: E501 line too long (93 > 79 characters)
+28: E501 line too long (92 > 79 characters)
+30: E501 line too long (86 > 79 characters)
+65: E501 line too long (113 > 79 characters)
+66: E501 line too long (91 > 79 characters)
+68: E501 line too long (113 > 79 characters)
+74: E501 line too long (109 > 79 characters)
+
+As they do not impact the website, I have left them in place to avoid creating issues.
+  
 ## Deployment
 
 ## Bugs
