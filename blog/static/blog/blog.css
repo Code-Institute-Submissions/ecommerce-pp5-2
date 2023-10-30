@@ -35,11 +35,11 @@
 }
 
 .masthead {
-
+    padding: 10px;
     overflow: hidden;
     position: relative;
     display: inline-block;
-    height: 33vh;
+    height: 10vh;
     width: 100%;
 }
 
@@ -88,7 +88,6 @@
     padding: 20px;
 }
 
-
 .flex-item {
     flex: 1;
 }
@@ -105,4 +104,8 @@
     max-height: 500px;
     width: auto;
     
+}
+
+.back-btn {
+    margin-left: 20px;
 }

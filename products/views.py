@@ -6,7 +6,6 @@ from collections import defaultdict
 from django.template import engines
 
 
-
 def all_products(request):
     """Show all products, with sorting and search"""
 
@@ -54,15 +53,13 @@ def all_products(request):
         if 'promotion' in request.GET:
             promotions = request.GET['promotion'].split(',')
             products = products.filter(promotion__name__in=promotions)
-            promotions = Promotion.objects.filter(name__in=promotions)
-            
+            promotions = Promotion.objects.filter(name__in=promotions)    
         if request.GET:
             if 'q' in request.GET:
                 query = request.GET['q']
                 if not query:
-                    messages.error(request, 'You did not enter a serch criteria')
+                    messages.error(request, 'You did not enter a search criteria')
                     return redirect(reverse('products'))
-                
                 queries = Q(name__icontains=query) | \
                           Q(description__icontains=query) | \
                           Q(region__name__icontains=query) | \
@@ -73,7 +70,6 @@ def all_products(request):
 
     current_sorting = f'{sort}_{direction}'
 
-    # Create dictionary to display each region associated with a country not working
     country_regions = defaultdict(list)
 
     for region in Region.objects.all():
@@ -104,7 +100,3 @@ def product_detail(request, product_id):
     }
 
     return render(request, 'products/product_detail.html', context)
-
-
-
-    

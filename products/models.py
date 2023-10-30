@@ -4,7 +4,7 @@ from django.utils.text import slugify
 
 
 class Category(models.Model):
-
+    """ Create a product category"""
     class Meta:
         verbose_name_plural = 'categories'
 
@@ -19,7 +19,7 @@ class Category(models.Model):
 
 
 class Country(models.Model):
-
+    """ List of countries - sub category"""
     class Meta:
         verbose_name_plural = 'countries'
 
@@ -30,6 +30,7 @@ class Country(models.Model):
 
 
 class Region(models.Model):
+    """ List of regions - Sub category"""
 
     class Meta:
         verbose_name_plural = 'regions'
@@ -43,20 +44,20 @@ class Region(models.Model):
 
 
 class Promotion(models.Model):
+    """ Allows owner to place products on sale"""
+    name = models.CharField(max_length=50)
+    discount_percentage = models.PositiveIntegerField(null=True, blank=True, help_text="Enter discount as percentage(e.g., 10 for 10 %)")
+    discount_amount = models.DecimalField(max_digits=10, decimal_places=2, null=True, blank=True, help_text="Enter a fixed discount amount.")
+
     class Meta:
         verbose_name_plural = 'Promotions'
-    
-    name = models.CharField(max_length=50)
-    discount_percentage = models.PositiveIntegerField(null=True, blank=True, 
-     help_text="Enter discount as percentage(e.g., 10 for 10 %)")
-    discount_amount = models.DecimalField(max_digits=10, decimal_places=2, null=True, 
-    blank=True, help_text="Enter a fixed discount amount.")
-
+            
     def __str__(self):
         return self.name
 
 
 class Product(models.Model):
+    """Main product model """
     category = models.ForeignKey(
         Category, related_name='products', null=True, blank=True, on_delete=models.SET_NULL)
     country = models.ForeignKey(
@@ -82,6 +83,7 @@ class Product(models.Model):
 
     @property
     def discounted_price(self):
+        """Calculate dicount"""
         if self.promotion:
             if self.promotion.discount_percentage:
                 discount = Decimal(self.promotion.discount_percentage) / Decimal(100)
