@@ -238,6 +238,14 @@ DATABASES = {
 The live site canbe found here: https://the-wine-society-01e133d06325.herokuapp.com/
 ## Bugs
 
+I have discovered 10 minutes before deployment  that my small screen media css is not working on the deployed app. It working on my development side. To late to fix it.
+
+<details>
+
+![Small screen ](/media/readme_images/ccs_codeanywhere.png)
+
+</details>
+
 ## Credits
 
 The basis of the code come from the Code Institue "Boutique Ado"
