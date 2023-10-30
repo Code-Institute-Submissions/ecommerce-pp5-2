@@ -12,10 +12,7 @@ This website is a specialist shop, with a wine club. A place for wine enthusiast
 - Features
 	 - Homepage
 	 - Shop
-	 - Club / Blog
-	 - Images
-	 - Typgraphy
-	 - Color Scheme
+	 - blog
 	 - Site management
 - Technologies
 	 - Django
@@ -193,16 +190,58 @@ Results:
 
 As they do not impact the website, I have left them in place to avoid creating issues.
 
-- HTML
--![W3C Markup Result](./media/readme_images/w3org.png)
+- HTML W3C
+-![W3C HTML Result](./media/readme_images/w3org.png)
     - This validator showed several errors in relation to li items as children of nav element. Unfortunately, I was unable to locate the shown errors in the code in order to fix them before submission. 
     - I was able to fix the error casued by a gap in the URL using urlencode to replace the gap with %20.
   - Error: Duplicate ID user-options. I was unable to locate the duplication before deployment. It has not impacted the functionality of the site
-  
+
+- CSS W3C
+-![W3C CSS Result](./media/readme_images/css_error.png)
+   -  Two error which one which I corrected, the second issue was not resolved before deployment.
+
+I manually tested the site, dicovering and resolving a number of bugs. I used prints statements and console log as my main tools for fixing the the issues. I with statments I would be able see each step and indentify the issues.
+
 ## Deployment
 
+1.	Set a repository on GitHub using the CI template from code institute.  
+2.	Set up workspace within Codeanywhere by using GitHub repository.
+3.	Once workspace has been created, install Django, pip3 install ‘django<4’
+4.	Create a new project, use django-admin startproject the_wine_society
+5.	Create gitignore file, touch .gitignore and add *.pyc,*.sqlite3, _pycahe_
+6.	Run the project using django3 manage.py runserver
+7.	Add to ‘8000-shane-bath-ecommerce-pp5-g3jop36yi6.us2.codeanyapp.com’ to ALLOWED_HOSTS = [] settings.py
+8.	Once you have confirmed that the server is working, stop the server and complete you first migration. Run python3 manage.py migrate
+9.	Create a super user, run python3 manange.py createsuperuser and create as username with password
+10.	Commit changes to the github repository, run git add . , git commit -m “initial commit”. Git push
+11.	Create a databasae, I used ElephantSQL, create a new database using the tiny turtle level. Name you database, select the region closes to you and create new instance
+12.	Deploy the app to Heroku, select create new app, name the app and select Europe. Create the app.
+13.	Configure the database in Heroku, go to settings, select revel config vars. Add DATABASE_URL and paste in the postgres URL from ElephantSQL. Click add.
+14.	Inistall dj_database_ url and psycoppd2, run pip3 install dj_database_url==0.5.0 psycopg2 in the terminal
+15.	Add the packages to requirements.txt run pip3 freeze > requirements.txt
+16.	In settings.py add import os and import dj_database_url
+17.	Add the new elephantSQL database url to env.py:
+DATABASES = {
+     'default': dj_database_url.parse('your-database-url-here')
+ }
+18.	Install gunicorn, run pip3 install gunicorn
+19.	Add the gunicorn to requirements.txt run pip3 freeze > requirements.txt
+20.	In the Heroku app disable STATIC file, in the reveal config section under setting add: DISABLE_COLLLECTSTATIC and 1. Click add
+21.	In Heroku reveal config section, add SECRET_KEY and add a password
+22.	Add PORT and 8000 to Heroku config var section
+23.	In settings.py replace the SECRET_KEY with the following, SECRET_KEY = os.environ.get(‘SECRET_KEY, ‘ ‘)
+24.	In settings.py change debug from TRUE to 'DEVELOPMENT' in os.environ
+25.	In settings.py add if os.path.isfile('env.py'): import env
+26.	Run python manage.py migrate to migrate to the ElephantSQL database
+27.	Created and  deployed AWS bucket added keys to the Heroku config files
+
+The live site canbe found here: https://the-wine-society-01e133d06325.herokuapp.com/
 ## Bugs
 
 ## Credits
 
+The basis of the code come from the Code Institue "Boutique Ado"
+
 ## Acknowledgements
+
+A big thank you to Dasiy Mcgirr
