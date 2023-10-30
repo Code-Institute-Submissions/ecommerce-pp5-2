@@ -192,6 +192,12 @@ Results:
 74: E501 line too long (109 > 79 characters)
 
 As they do not impact the website, I have left them in place to avoid creating issues.
+
+- HTML
+-![W3C Markup Result](./media/readme_images/w3org.png)
+    - This validator showed several errors in relation to li items as children of nav element. Unfortunately, I was unable to locate the shown errors in the code in order to fix them before submission. 
+    - I was able to fix the error casued by a gap in the URL using urlencode to replace the gap with %20.
+  - Error: Duplicate ID user-options. I was unable to locate the duplication before deployment. It has not impacted the functionality of the site
   
 ## Deployment
 
