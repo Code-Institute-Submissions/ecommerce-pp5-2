@@ -1,6 +1,6 @@
 # The Wine Society*
 
-This website is a specialist shop, with a wine club. A place for wine enthusiast. The shop will sell wine from different parts of the world, and will encourage customers to join the club to access extra customer benefits.  
+This website is a specialist shop, with a wine club. A place for wine enthusiast. The shop will sell wine from different parts of the world, and will encourage customers to join the club to access extra customer benefits.
 
 ## Table of Contents
 
@@ -34,7 +34,7 @@ This website is a specialist shop, with a wine club. A place for wine enthusiast
 
 ## Business Model
 
-This a business to customer business, built around a community. The site will offer a traditional retail experience, with the goal of engaging customers who are interested in the product and want to learn more about its background, attend tastings, and hear talks from winemakers and other industry specialists. The wine club will produce informative and engaging blog posts, host wine tasting events, and offer member discounts and monthly wine samples curated around themes and events.  The club will offer a subscription service to provide customers with a convenient and hassle-free way to discover and enjoy new wines. The business will also offer products related to wine, including wine glasses, decanters, wine opener, and other related products.  
+This a business to customer business, B to C modle, built around a community. The site will offer a traditional retail experience, with the goal of engaging customers who are interested in the product and want to learn more about its background, attend tastings, and hear talks from winemakers and other industry specialists. The wine club will produce informative and engaging blog posts, host wine tasting events, and offer member discounts and monthly wine samples curated around themes and events.  The club will offer a subscription service to provide customers with a convenient and hassle-free way to discover and enjoy new wines. The business will also offer products related to wine, including wine glasses, decanters, wine opener, and other related products.  
 
 ## Preparation
 
@@ -126,9 +126,13 @@ A wine blog can be used to populate other marketing channels, such as Facebook a
 -
 
 ## Marketing
+Leveraging both Facebook and a dedicated blog, I aim to create a dynamic online presence for my wine shop. Facebook is invaluable for real-time engagement, where the owener can post daily updates on new arrivals, special promotions, and upcoming tasting events. The blog, on the other hand, serves as a platform for more in-depth content, including wine pairing guides and interviews with vineyard owners. Together, these platcforms not only attract new customers but also build a community of wine enthusiasts.
 
-*rough
-fcaebook, twitter, Instagram, email, blog*
+<details>
+<summary>Facebook page screenshots</summary>
+![Facebook screenshot 1](/media/readme_images/facebook_bus.png)
+![Facebook screenshot 2](/media/readme_images/facebook_bus_2.png)
+</details>
 
 ## Testing
 
