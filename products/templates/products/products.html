@@ -10,8 +10,6 @@
 {% endblock %}
 
 {% block content %}
-<!-- MAIN PAGE HEADER  -->
-<!-- To review overlay as I might move background image to index.html -->
 <div class="overlay"></div>
 <div class="container-fluid">
     <div class="row">
@@ -66,9 +64,6 @@
                                 <div class="card-footer bg-white pt-0 border-0 text-left">
                                     <div class="row">
                                         <div class="col">
-                                            <!-- I am not sure if this should be done in the cart. Should this be handled in the model with final_price  -->
-                                            <!-- 13/10 Model not working, leave until I get to cart -->
-                                            <!-- Do i use math and math.ceil to round up to the nearest 5 or dowm to 0 -->
                                             {% if product.promotion %}
                                                 <p class="lead mb-0 text-left text-muted discount">Was ! ${{ product.price }}</p>
                                                 <p class="lead mb-0 text-left font-weight-bold">{{ product.promotion.name }} {{ product.promotion.discount_percentage }}% off !</p>

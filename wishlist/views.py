@@ -1,4 +1,5 @@
-from django.shortcuts import render, redirect, reverse, get_object_or_404, HttpResponse
+from django.shortcuts import render, redirect
+from django.shortcuts import reverse, get_object_or_404, HttpResponse
 from django.http import HttpResponseRedirect
 from django.urls import reverse
 from django.contrib import messages
@@ -22,7 +23,8 @@ def wishlist(request):
 
         return render(request, template, context)
     else:
-        messages.success(request, 'You need to be logged in to see your wish list')
+        messages.success(request, 'You need to be logged'
+                                  'in to see your wish list')
         return redirect('/accounts/login')
 
 
@@ -39,7 +41,8 @@ def add_to_wishlist(request, product_id):
                 Wishlist.objects.create(user=request.user, product=product)
                 messages.success(request, 'Producted added to wishlist')
             else:
-                messages.warning(request, 'Product already exsists in your wishlist')
+                messages.warning(request, 'Product already'
+                                          'exsists in your wishlist')
 
             return HttpResponseRedirect(reverse('wishlist'))
     else:
@@ -51,23 +54,25 @@ def add_to_wishlist(request, product_id):
 def delete_from_wishlist(request, wishlist_id):
     """Delete item from wish list"""
     if request.method == 'POST':
-        item_to_delete = get_object_or_404(Wishlist, id=wishlist_id, user=request.user)
+        item_to_delete = get_object_or_404(
+            Wishlist, id=wishlist_id, user=request.user)
         item_to_delete.delete()
-        
+
         return HttpResponseRedirect(reverse('wishlist'))
 
 
 def move_to_bag(request, item_id):
     """
-    Add product to the bag from the wishlist 
+    Add product to the bag from the wishlist
     and delete from wishlist
     """
     product = get_object_or_404(Product, pk=item_id)
 
-    wishlist_item = get_object_or_404(Wishlist, user=request.user, product=product)
-        
+    wishlist_item = get_object_or_404(
+        Wishlist, user=request.user, product=product)
+
     bag = request.session.get('bag', {})
-    
+
     if item_id in bag:
         bag[item_id]['quantity'] = bag[item_id]['quantity'] + 1
     else:
@@ -75,7 +80,7 @@ def move_to_bag(request, item_id):
             'quantity': 1,
             'price': float(product.price)
         }
-        
+
     request.session['bag'] = bag
     wishlist_item.delete()
 

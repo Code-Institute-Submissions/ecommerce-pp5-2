@@ -3,9 +3,11 @@ from .models import Country, Category, Region, Promotion
 """
 Allow my to use the categories across apps
 """
+
+
 def country_context_processor(request):
     countries = Country.objects.all()
-    return{'countries': countries}
+    return {'countries': countries}
 
 
 def category_context_processor(request):

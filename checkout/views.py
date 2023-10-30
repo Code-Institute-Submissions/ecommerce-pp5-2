@@ -1,4 +1,4 @@
-from django.shortcuts import  render, redirect, reverse, get_object_or_404, HttpResponse
+from django.shortcuts import render, redirect, reverse, get_object_or_404, HttpResponse
 from django.views.decorators.http import require_POST
 from django.contrib import messages
 from django.conf import settings
@@ -24,7 +24,7 @@ def cache_checkout_data(request):
             'save_info': request.POST.get('save_info'),
             'username': request.user,
         })
-    
+
         return HttpResponse(status=200)
     except Exception as e:
         messages.error(request, 'Sorry your payment cannot be \
@@ -52,7 +52,7 @@ def checkout(request):
             'county_or_state': request.POST['county_or_state'],
         }
         order_form = OrderForm(form_data)
-        
+
         if order_form.is_valid():
             order = order_form.save(commit=False)
             pid = request.POST.get('client_secret').split('_secret')[0]
@@ -69,7 +69,7 @@ def checkout(request):
                             quantity=item_data,
                         )
                         order_line_item.save()
-                    
+
                 except Product.DoesNotExist:
                     messages.error(request, (
                         "One of the products in your bag wasn't found in our database. "
@@ -171,5 +171,5 @@ def checkout_success(request, order_number):
     context = {
         'order': order,
     }
-    
+
     return render(request, template, context)

@@ -3,8 +3,8 @@ from django.conf import settings
 from django.shortcuts import get_object_or_404
 from products.models import Product
 
-""" 
-Bag calculations 
+"""
+Bag calculations
 """
 
 
@@ -16,7 +16,10 @@ def bag_contents(request):
 
     for item_id, item_data in bag.items():
         product = get_object_or_404(Product, pk=item_id)
-        price_to_use = product.discounted_price if product.discounted_price else product.price
+        price_to_use = (
+            product.discounted_price if product.discounted_price
+            else product.price
+        )
         if isinstance(item_data, int):
             total += item_data * price_to_use
             product_count += item_data

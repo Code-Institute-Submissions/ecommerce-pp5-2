@@ -46,12 +46,15 @@ class Region(models.Model):
 class Promotion(models.Model):
     """ Allows owner to place products on sale"""
     name = models.CharField(max_length=50)
-    discount_percentage = models.PositiveIntegerField(null=True, blank=True, help_text="Enter discount as percentage(e.g., 10 for 10 %)")
-    discount_amount = models.DecimalField(max_digits=10, decimal_places=2, null=True, blank=True, help_text="Enter a fixed discount amount.")
+    discount_percentage = models.PositiveIntegerField(
+        null=True, blank=True, help_text="Enter discount as percentage(e.g., 10 for 10 %)")
+    discount_amount = models.DecimalField(
+        max_digits=10, decimal_places=2, null=True,
+        blank=True, help_text="Enter a fixed discount amount.")
 
     class Meta:
         verbose_name_plural = 'Promotions'
-            
+
     def __str__(self):
         return self.name
 
@@ -59,11 +62,14 @@ class Promotion(models.Model):
 class Product(models.Model):
     """Main product model """
     category = models.ForeignKey(
-        Category, related_name='products', null=True, blank=True, on_delete=models.SET_NULL)
+        Category, related_name='products', null=True,
+        blank=True, on_delete=models.SET_NULL)
     country = models.ForeignKey(
-        Country, related_name='products', on_delete=models.SET_NULL, null=True, blank=True)
+        Country, related_name='products', on_delete=models.SET_NULL,
+        null=True, blank=True)
     region = models.ForeignKey(
-        Region, related_name='products', on_delete=models.SET_NULL, null=True, blank=True)
+        Region, related_name='products', on_delete=models.SET_NULL,
+        null=True, blank=True)
     sku = models.CharField(max_length=254, null=True, blank=True)
     name = models.CharField(max_length=254)
     slug = models.SlugField(unique=True, null=True, blank=True)
@@ -74,7 +80,8 @@ class Product(models.Model):
     image = models.ImageField(
         upload_to='product_images/', null=True, blank=True)
     promotion = models.ForeignKey(
-        Promotion, related_name='products', null=True, blank=True, on_delete=models.SET_NULL)
+        Promotion, related_name='products', null=True,
+        blank=True, on_delete=models.SET_NULL)
 
     def save(self, *args, **kwargs):
         if not self.slug:
@@ -88,7 +95,7 @@ class Product(models.Model):
             if self.promotion.discount_percentage:
                 discount = Decimal(self.promotion.discount_percentage) / Decimal(100)
                 discounted_price = self.price * (Decimal(1) - discount)
-                return discounted_price.quantize(Decimal('0.01'), rounding=ROUND_UP) 
+                return discounted_price.quantize(Decimal('0.01'), rounding=ROUND_UP)
             elif self.promotion.discount_amount:
                 return self.price - self.promotion.discount_amount
             return self.price
