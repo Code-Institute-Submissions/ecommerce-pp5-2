@@ -33,6 +33,7 @@ DEBUG = 'DEVELOPMENT' in os.environ
 
 ALLOWED_HOSTS = [
     '8000-shane-bath-ecommerce-pp5-g3jop36yi6.us2.codeanyapp.com',
+    '8000-shane-bath-ecommerce-pp5-ii497efw10.us2.codeanyapp.com',
     'the-wine-society-01e133d06325.herokuapp.com',
 ]
 

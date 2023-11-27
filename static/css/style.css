@@ -20,6 +20,10 @@ body {
   font-family: "Rubik", sans-serif;
 }
 
+.header-container {
+     padding-top: 116px;
+ }
+
 a:hover {
   text-decoration: none;
 }
@@ -386,7 +390,7 @@ input[name="q"]::placeholder {
     margin-top: 1.5rem;
     color: #6c757d;
     
-
+}
 .allauth-form-inner-content input {
     border-color: #000;
     border-radius: 0;
