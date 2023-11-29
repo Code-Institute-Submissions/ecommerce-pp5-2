@@ -160,6 +160,21 @@ A wine blog can be used to populate other marketing channels, such as Facebook a
 
 ## Testing
 
+## Manual Testing 
+### Registration
+
+| Objective | Test | Expected result | Passed |
+| :---:     | :---:|    :---:        | :---:  |
+| Check if registration works | Click on my account, click register. Complete the registration form. Click sign up. | An email will be sent to sign up email and ask the user to confirm email | Passed |
+| Check if login works | Click on my account, click  login Complete the login form. Click login | Home page to open, success toast display confirming login. | Passed |
+| Check if logout works | Click on my account, click logout. | Sign out page displayed and the user is asked to sign out. After the signed out the user is returned to the home page.
+| Passed |
+
+### Navigation link
+
+| Objective | Test | Expected result | Passed |
+| :---:     | :---:|    :---:        | :---:  |
+
 The website was tested for markup and CSS validation along with javascript, responsive design.
 
 The python code was run through Code Institute's Pep8 Linter to check for errors. It passed with no errors expect for line length.
