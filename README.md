@@ -167,13 +167,20 @@ A wine blog can be used to populate other marketing channels, such as Facebook a
 | :---:     | :---:|    :---:        | :---:  |
 | Check if registration works | Click on my account, click register. Complete the registration form. Click sign up. | An email will be sent to sign up email and ask the user to confirm email | Passed |
 | Check if login works | Click on my account, click  login Complete the login form. Click login | Home page to open, success toast display confirming login. | Passed |
-| Check if logout works | Click on my account, click logout. | Sign out page displayed and the user is asked to sign out. After the signed out the user is returned to the home page.
-| Passed |
+| Check if logout works | Click on my account, click logout. | Sign out page displayed and the user is asked to sign out. After the signed out the user is returned to the home page.| Passed |
 
 ### Navigation link
 
 | Objective | Test | Expected result | Passed |
 | :---:     | :---:|    :---:        | :---:  |
+| Check shop now button works | Click on the Shop now button, on the home page | User is redirected to the product page | Passed |
+| Check logo button works | Click on the logo, The Wine Society on the top left corner of the page | User is redirected to the home page | Passed |
+| Check navigation link works | Click on any of the Navigation links | A drop down list appears with further category links | Passed |
+| Check if navigation catergory links work (Wine) | Click on eack category links | User is redirected to the category page and only display product associated with each catergory | Passed |
+| Check if navigation country links work | Click on each country link | User is redirected to the country page and only display product associated with each country | Passed |
+| Check if navigation region links works | Click on each region link | User is redirected to the region page and only display product associated with each region | Passed |
+| Check if special offers links works | Click on each special offer link | User is redirected to the special offer page and only display product associated with each special offer | Passed |
+
 
 The website was tested for markup and CSS validation along with javascript, responsive design.
 
