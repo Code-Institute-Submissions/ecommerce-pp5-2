@@ -176,11 +176,23 @@ A wine blog can be used to populate other marketing channels, such as Facebook a
 | Check shop now button works | Click on the Shop now button, on the home page | User is redirected to the product page | Passed |
 | Check logo button works | Click on the logo, The Wine Society on the top left corner of the page | User is redirected to the home page | Passed |
 | Check navigation link works | Click on any of the Navigation links | A drop down list appears with further category links | Passed |
-| Check if navigation catergory links work (Wine) | Click on eack category links | User is redirected to the category page and only display product associated with each catergory | Passed |
+| Check if navigation category links work (Wine) | Click on eack category links | User is redirected to the category page and only display product associated with each category | Passed |
 | Check if navigation country links work | Click on each country link | User is redirected to the country page and only display product associated with each country | Passed |
 | Check if navigation region links works | Click on each region link | User is redirected to the region page and only display product associated with each region | Passed |
 | Check if special offers links works | Click on each special offer link | User is redirected to the special offer page and only display product associated with each special offer | Passed |
 
+### Products Page and Product details page
+
+| Objective | Test | Expected result | Passed |
+| :---:     | :---:|    :---:        | :---:  |
+| Check if product image link works | Click on product image | User is redirected to the product details page | Passed |
+| Check if add to wishlist link works | Click on Add to wishlist link | User is redirected to the wishlist page | Passed |
+| Check if quantity buttons works | Click on the increment and decrement buttons | The value increases and decrease | Passed |
+| Check if quantity limits works | Click on the increment and decrement buttons | The value does not pass below 1 or above 99 | Passed |
+| Check if Add to bag button works| Click on the add to bag button | The user is shown a Success Toast, the product is displayed in the toast with  the correct quantity | Passed | 
+| Check if Go to secure checkout works | Click on the Go to secure checkout button | The user is redirected to the shopping bag  the product is displayed in the bag with  the correct quantity | Passed |
+| Check if the product image will display in a seperate tab | Click on the product image | A new tab open with the product image | Passed |
+| Check if the keep shopping button works | Click on the keep shopping button | User is redirected to the products page | Passed |
 
 The website was tested for markup and CSS validation along with javascript, responsive design.
 
