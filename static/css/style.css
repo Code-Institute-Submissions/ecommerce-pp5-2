@@ -447,6 +447,15 @@ input[name="q"]::placeholder {
     display: none;
  }
 
+ /* Footer */
+
+ .wrap-bg {
+    background-color: rgb(0, 0, 0, 0.3) ;
+ }
+
+ .footer-h {
+    color: white;
+ }
 
 /* Media Queries */
 
