@@ -8,11 +8,11 @@ def contact_form(request):
     contact_form = ContactForm()
 
     if request.method == 'POST':
-        form = ContactForm(request.POST)
-        if form.is_valid():
-            form.save()
+        contact_form = ContactForm(request.POST)
+        if contact_form.is_valid():
+            contact_form.save()
             return redirect('products')
     else:
-        form = ContactForm()
+        contact_form = ContactForm()
 
     return render(request, 'contact.html', {'contact_form': contact_form})
