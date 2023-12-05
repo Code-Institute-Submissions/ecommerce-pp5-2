@@ -14,5 +14,3 @@ class ContactForm(forms.ModelForm):
             'subject': 'Subject',
             'body': 'Message'
         }
-
- 
