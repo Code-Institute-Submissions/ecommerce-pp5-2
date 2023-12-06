@@ -194,6 +194,50 @@ A wine blog can be used to populate other marketing channels, such as Facebook a
 | Check if the product image will display in a seperate tab | Click on the product image | A new tab open with the product image | Passed |
 | Check if the keep shopping button works | Click on the keep shopping button | User is redirected to the products page | Passed |
 
+### Wishlist
+| Objective | Test | Expected result | Passed |
+| :---:     | :---:|    :---:        | :---:  |
+| Check if Description link in wishlist works | Click on the product description link | User is redirected to the product page | Passed |
+| Check if delete button works | Click on the delete button | The product is removed from the wishlist | Passed |
+| Check if the Add to bag button works | Click on the add to bag button | The product is add to the bag | Passed |
+
+### Bag
+| Objective | Test | Expected result | Passed |
+| :---:     | :---:|    :---:        | :---:  |
+| Check if the increment button works | Check if the increment button works | The quantity increases | Passed |
+| Check if the decrement button works | Click on the decrement button | The quantity decreases | Failed |
+| Check if the Remove link works | Click on the remove link | The product is removed from the bag | Passed |
+| Check if the update link works | Click on the update link | The quantity of the product is changed based on the new quantity | Passed |
+| Check if the secure checkout button works | Click on the secure checkout button | The user is redirected to the checkout page | Passed |
+| Check if the  keep shopping button works | Click on the checkout button | The user is redirected to the product page | Passed |
+
+### Checkout
+| Objective | Test | Expected result | Passed |
+| :---:     | :---:|    :---:        | :---:  |
+| Check if the checkout information form accepts the correct values | Complete the checkout form | The user is notified if the user has left out required information or inputted the incorrect value | Passed |
+| Check if the credit card validation works | Complete the payment form | The user is notified if the user has inputted a invalid credit card number | Passed |
+| Check if the complete order button works | Click the complete order button  | The user is redirected to successful checkout page with the information about the purchase | Passed |
+
+### Profile
+| Objective | Test | Expected result | Passed |
+| :---:     | :---:|    :---:        | :---:  |
+| Check if the user information is saved from checkout | Complete the checkout form and complete a sale | The user information is saved | Passed |
+| Check if the user information is saved from profile | Complete the profile form and | The user information is saved| Passed |
+| Check if the user can edit information | Edit a field and click update button | The user information is updated | Passed |
+| Check if the user purchase history is saved | Complete the checkout form and complete a sale | The user purchase history is diplayed in the users profile | Passed |
+| Check if the add to wishlist works | Click on the add to wishlist link | User is user  is redirected to the wishlist page and the product is displayed | User is user  is redirected to the wishlist page and the product is displayed | Passed |
+
+
+### Other
+| Objective | Test | Expected result | Passed |
+| :---:     | :---:|    :---:        | :---:  |
+| Check my account works | Click on my account button in navigation bar | A dropdown list is displayed | Passed |
+| Check if my account links works | Click on each of the my account dropdowm options | The user is redirected to the appropriate pages | Passed |
+| Check if bag link link works | Click on bag icon | The user is redirected to the bag section | Passed |
+| Check if search icon works | Click on the search icon | The user is redirected to a search modal | Passed |
+| Check if search function works | Add search creatria to the search box | Products are returned in the products page that matches the search critrea | Passed |
+
+
 The website was tested for markup and CSS validation along with javascript, responsive design.
 
 The python code was run through Code Institute's Pep8 Linter to check for errors. It passed with no errors expect for line length.
