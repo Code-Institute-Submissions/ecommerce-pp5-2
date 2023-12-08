@@ -172,6 +172,12 @@ there is flexibility with the database to continue to add to the existing databa
  The owner can add and delete products and categories in the admin section of the 
  website.
 
+<details>
+<summary> Database schema </summary>
+
+![database](media/readme_images/blzwulmw_public.png)
+
+</details>
 
 ## Testing
 
