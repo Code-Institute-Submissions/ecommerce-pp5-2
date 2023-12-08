@@ -157,6 +157,21 @@ A wine blog can be used to populate other marketing channels, such as Facebook a
   ![blog Screenshot 2](media/readme_images/blog_details.png)
 </details>
 
+## Database
+ElephantSQL hosts the site's PostgreSQL server. Postgres is a free and open-source 
+relational database management system. ElephantAQL will manage the administrative 
+tasks of the database. The database comprises tables for products and product 
+categories, which include style, colour, regions, and countries. Which will allow 
+the owner of the site to upload products and categorise them appropriately to 
+ensure that the users of the site will be able to find the products.
+
+
+
+The owner will be able to grow the type of products as the business develops, as 
+there is flexibility with the database to continue to add to the existing database.
+ The owner can add and delete products and categories in the admin section of the 
+ website.
+
 
 ## Testing
 
