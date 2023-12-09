@@ -1,0 +1,6 @@
+Hi {{ name }}! 
+
+Thank you for contacting us. We will reply to as soon as possile.
+
+Thanks 
+The wine society team.

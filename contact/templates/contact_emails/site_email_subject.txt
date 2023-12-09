@@ -1,0 +1,1 @@
+You have recived an email from {{ name }} {{ email }}

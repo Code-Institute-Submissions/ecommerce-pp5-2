@@ -20,11 +20,11 @@ def contact_form(request):
             message = contact_form.cleaned_data['body']
 
             ''' Send the email to the site email address'''
+            subject = render_to_string(
+                'contact/templates/contact_email/site_email_subject.txt'),
             send_mail(
                 subject,
-                # f"Message Recieved from {name}: {email}",
-                message,
-                email,
+                body,
                 [settings.EMAIL_HOST_USER],
                 )
             
