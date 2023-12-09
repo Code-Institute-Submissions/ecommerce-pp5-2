@@ -21,15 +21,28 @@ def contact_form(request):
             message = contact_form.cleaned_data['body']
 
             ''' Send the email to the site email address'''
+
+            send_mail(
+                subject,
+                message,
+                email,
+                [settings.EMAIL_HOST_USER],
+            )
+
+            ''' Send the user a confirmation email'''
+
             subject = render_to_string(
-                'contact/templates/contact_email/site_email_subject.txt'),
+                'contact_emails/email_confirmation_subject.txt', {'name': name})
+            body = render_to_string(
+                'contact_emails/email_confirmation_body.txt')
             send_mail(
                 subject,
                 body,
-                [settings.EMAIL_HOST_USER],
+                settings.EMAIL_HOST_USER,
+                [email,]
                 )
             
-            ''' Send the user a confirmation email'''
+           
             # send_mail(
             #     'Thank you for contacting us',
             #     f"Dear {name}, we have recieved your message and will get back you shortly.",
