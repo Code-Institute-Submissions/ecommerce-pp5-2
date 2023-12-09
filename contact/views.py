@@ -19,8 +19,22 @@ def contact_form(request):
             subject = contact_form.cleaned_data['subject']
             message = contact_form.cleaned_data['body']
 
-            # Send the email
-            send_mail(subject, message, email, [settings.EMAIL_HOST_USER],)
+            # Send the email to the site email address
+            send_mail(
+                subject,
+                f"Message Recieved from {name}: {email}",
+                message, 
+                email,
+                [settings.EMAIL_HOST_USER],
+                )
+            
+            # Send the user a confirmation email
+            send_mail(
+                'Thank you for contacting us',
+                f"Dear {name}, we have recieved your message and will get back you shortly.",
+                email,
+                [email],
+                )
 
             # Send a success message
             messages.info(request, 'Message sent')
