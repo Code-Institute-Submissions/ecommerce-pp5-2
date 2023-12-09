@@ -1,6 +1,10 @@
 Hi {{ name }}! 
 
-Thank you for contacting us. We will reply to as soon as possile.
+Thank you for contacting us. We will reply to you as soon as possile.
 
-Thanks 
+Thanks for getting in touch
 The wine society team.
+
+Tel: (01) 1239876
+email: sb.django.test@gmail.com
+Socials: 
