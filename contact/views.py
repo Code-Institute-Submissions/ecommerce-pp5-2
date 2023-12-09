@@ -29,12 +29,12 @@ def contact_form(request):
                 )
             
             # Send the user a confirmation email
-            send_mail(
-                'Thank you for contacting us',
-                f"Dear {name}, we have recieved your message and will get back you shortly.",
-                email,
-                [email],
-                )
+            # send_mail(
+            #     'Thank you for contacting us',
+            #     f"Dear {name}, we have recieved your message and will get back you shortly.",
+            #     email,
+            #     [email],
+            #     )
 
             # Send a success message
             messages.info(request, 'Message sent')
