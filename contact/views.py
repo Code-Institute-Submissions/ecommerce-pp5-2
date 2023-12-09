@@ -52,8 +52,9 @@ def contact_form(request):
                 )
             
             # Send a success message
-            messages.info(request, 'Message sent')
+            messages.info(request, 'Message sent. We will be in contact with you as soon as possible')
             return redirect('products')
+            
     else:
         contact_form = ContactForm()
 

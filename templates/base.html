@@ -143,15 +143,9 @@
     {% endif %}
     
     {% block page_header %}
-    <div class="container header-container">
-        {% for message in messages %}
-            {% include 'includes/toasts/toast_success.html' %}
-        {% endfor %}
-    </div>
     {% endblock %}
     
     {% block content %}
-    
     {% endblock %}
     
     {% block postloadjs %}
