@@ -4,8 +4,9 @@ from .models import Contact
 
 
 class ContactAdmin(admin.ModelAdmin):
-    list_display = ('name', 'email', 'subject', 'body', 'created_on')
-    orderinig = ('-created_on')
+    list_display = ('name', 'email', 'subject', 'body', 'created_on', 'complete')
+    list_editable = ('complete',)
+    ordering = ('-created_on',)
 
 
-admin.site.register(Contact)
+admin.site.register(Contact, ContactAdmin)

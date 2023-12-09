@@ -9,9 +9,12 @@ from django.template.loader import render_to_string
 
 
 def contact_form(request):
-    '''A contact form for the custemor to contact the business.
-       An email is sent to the site owner to notify them that a customer has sent
-       contact email. And an email is sent to the client to confirm reciept of email'''
+    '''
+    A contact form for the custemor to contact the business.
+    An email is sent to the site owner to notify them that a customer has sent
+    contact email. And an email is sent to the client to confirm reciept of email.
+    The contact email is saved in the admin panel.
+    '''
 
     contact_form = ContactForm()
 

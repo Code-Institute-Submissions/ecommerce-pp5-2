@@ -9,6 +9,7 @@ class Contact(models.Model):
     subject = models.CharField(max_length=200)
     body = models.TextField()
     created_on = models.DateTimeField(auto_now_add=True)
+    complete = models.BooleanField(default=False)
 
     def __str__(self):
-        return f"New message from {self.name}: {self.body}"
+        return f"New message from {self.name}"
