@@ -335,15 +335,41 @@ DATABASES = {
 27.	Created and  deployed AWS bucket added keys to the Heroku config files
 
 The live site canbe found here: https://the-wine-society-01e133d06325.herokuapp.com/
-## Bugs
+## Bug Report:
 
-I have discovered 10 minutes before deployment  that my small screen media css is not working on the deployed app. It working on my development side. To late to fix it.
-Below is the development image.
-<details>
+### Issue with Quantity Update in Shopping Bag
+#### Description:
 
-![Small screen ](/media/readme_images/ccs_codeanywhere.png)
+When testing the script that manages item quantities in the shopping bag, an issue was observed with the decrement button's functionality. Specifically, when a user adds an item with a quantity of 1 to the bag and then increases the quantity using the increment button, the decrement button does not respond as expected to reduce the quantity. Instead, it remains disabled until the user clicks on the 'update' link.
 
-</details>
+#### Observations:
+
+The DOM does not update the quantity value after each click of the increment/decrement buttons. It remains at the initial value until the 'update' link is clicked.
+The quantity seen by the user on the frontend increases with each click, but this change is not immediately reflected in the backend. The server-side update only occurs upon clicking the 'update' link, which triggers a form submission.
+Post 'update' action, the decrement button functionality resumes as normal because the server and the DOM are then synchronized with the updated quantity.
+
+#### Initial Approach:
+
+To resolve this, an attempt was made to submit the form after each button click, intending to update the DOM and the server simultaneously. For example:
+
+        $('.increment-qty').click(function (e) {
+        e.preventDefault();
+        //......... exsisting code
+        
+        var form = $(this).closest('.update-form');
+        form.submit();
+    });
+
+
+However, this approach led to the page reloading after each click, resulting in a poor user experience due to the slow response.
+
+#### Recommendation for Future Implementation:
+
+After further research, it appears that integrating AJAX with the existing form and JavaScript would allow asynchronous server communication. This means the server can be updated and the DOM refreshed without needing to reload the page.
+
+For the current project scope, the automatic form submission on button clicks has been removed to avoid page reloads. Users will need to manually click the 'update' link to synchronize changes. In future e-commerce projects, AJAX will be considered for handling such interactions to enhance the user experience.
+
+
 
 ## Credits
 
