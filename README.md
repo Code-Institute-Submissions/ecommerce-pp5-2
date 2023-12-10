@@ -114,6 +114,27 @@ As the user scrolls down, they will see bold images with links to different sect
 
 </details>
 
+### Footer
+<details>
+
+The footer has links to the contact us page and the newsletter signup page.
+
+<summary>Footer</summary>
+
+![Footer](media/readme_images/footer.png)
+</details>
+
+### Contact us
+
+<details>
+
+The footer has links to the contact us page and the newsletter signup page.
+
+<summary>Contact page</summary>
+
+![Contact page](media/readme_images/Contact.png)
+</details>
+
 
 ## Technologies*
 
@@ -159,6 +180,19 @@ A wine blog can be used to populate other marketing channels, such as Facebook a
   
   ![blog Screenshot 1](media/readme_images/blog_cover.png)
   ![blog Screenshot 2](media/readme_images/blog_details.png)
+</details>
+
+### Newsletter
+
+The user can sign up to a newsletter. This was created using mailchimp. 
+
+<details>
+  <summary>Newsletter</summary>
+  
+  ![Newsletter](media/readme_images/newsletter.png)
+  ![newsletter success](media/readme_images/newletter_thankyou.png)
+  ![mailchimp subs](media/readme_images/mailchimp_subs.png)
+  
 </details>
 
 ## Database
@@ -341,7 +375,7 @@ DATABASES = {
 The live site can be found here: https://the-wine-society-01e133d06325.herokuapp.com/
 ## Bug Report:
 
-### Issue with Quantity Update in Shopping Bag
+### Issue with quantity update in shopping bag
 #### Description:
 
 When testing the script that manages item quantities in the shopping bag, an issue was observed with the decrement button's functionality. Specifically, when a user adds an item with a quantity of 1 to the bag and then increases the quantity using the increment button, the decrement button does not respond as expected to reduce the quantity. Instead, it remains disabled until the user clicks on the 'update' link.
@@ -371,7 +405,7 @@ However, this approach led to the page reloading after each click, resulting in 
 
 After further research, it appears that integrating AJAX with the existing form and JavaScript would allow asynchronous server communication. This means the server can be updated and the DOM refreshed without needing to reload the page.
 
-For the current project scope, the automatic form submission on button clicks has been removed to avoid page reloads. Users will need to manually click the 'update' link to synchronize changes. In future e-commerce projects, AJAX will be considered for handling such interactions to enhance the user experience.
+For the current project, the automatic form submission on button clicks has been removed to avoid page reloads. Users will need to manually click the 'update' link to synchronize changes. In future e-commerce projects, AJAX will be considered for handling such interactions to enhance the user experience.
 
 
 
