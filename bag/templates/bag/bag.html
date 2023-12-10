@@ -152,6 +152,8 @@
     $('.update-link').click(function (e) {
         var form = $(this).prev('.update-form');
         form.submit();
+        var itemId = $(this).closest('.update-form').find('.qty_input').data('item_id');
+        handleEnableDisable(itemId);
     });
 
     // Remove item and reload on click
@@ -165,6 +167,7 @@
         $.post(url, data)
             .done(function () {
                 location.reload();
+                handleEnableDisable(itemId);
             });
     })
 </script>

@@ -3,6 +3,7 @@
    
     function handleEnableDisable(itemId) {
         var currentValue = parseInt($(`.qty_input[data-item_id=${itemId}]`).val());
+        console.log('Current value for item ' + itemId + ':', currentValue);
         $(`.decrement-qty[data-item_id=${itemId}]`).prop('disabled', currentValue < 2);
         $(`.increment-qty[data-item_id=${itemId}]`).prop('disabled', currentValue > 98);
     }
@@ -10,11 +11,13 @@
 
     $('.qty_input').each(function () {
         var itemId = $(this).data('item_id');
+        console.log('Initializing item:', itemId);
         handleEnableDisable(itemId);
     });
 
     $('.qty_input').change(function () {
         var itemId = $(this).data('item_id');
+        console.log('Quantity changed for item:', itemId);
         handleEnableDisable(itemId);
     });
 
@@ -22,16 +25,24 @@
         e.preventDefault();
         var itemId = $(this).data('item_id');
         var closestInput = $(this).closest('.input-group').find(`.qty_input[data-item_id=${itemId}]`);
-        closestInput.val(parseInt(closestInput.val()) + 1);
-        handleEnableDisable(itemId);
+        var currentValue = parseInt(closestInput.val());
+        console.log('Increment clicked for item:', itemId);
+        if (currentValue < 98) {
+            closestInput.val(parseInt(closestInput.val()) + 1);
+            handleEnableDisable(itemId); 
+        }  
     });
 
     $('.decrement-qty').click(function (e) {
         e.preventDefault();
         var itemId = $(this).data('item_id');
         var closestInput = $(this).closest('.input-group').find(`.qty_input[data-item_id=${itemId}]`);
-        closestInput.val(parseInt(closestInput.val()) - 1);
-        handleEnableDisable(itemId);
+        var currentValue = parseInt(closestInput.val());
+        console.log('Decrement clicked for item:', itemId);
+        if (currentValue > 1) {
+            closestInput.val(parseInt(closestInput.val()) - 1);
+            handleEnableDisable(itemId);
+        } 
     });
 
 </script>
