@@ -1,6 +1,6 @@
-# The Wine Society*
+# The Wine Society
 
-This website is a specialist shop, with a wine club. A place for wine enthusiast. The shop will sell wine from different parts of the world, and will encourage customers to join the club to access extra customer benefits.
+This website is a specialist shop with a blog. A place for wine enthusiasts. The shop will sell wine from different parts of the world.
 
 ## Table of Contents
 
@@ -31,13 +31,13 @@ This website is a specialist shop, with a wine club. A place for wine enthusiast
 
 ## Business Model
 
-This a business to customer business, B to C model, built around a community. The site will offer a traditional retail experience, with the goal of engaging customers who are interested in the product and want to learn more about its background, attend tastings, and hear talks from winemakers and other industry specialists. The wine club will produce informative and engaging blog posts, host wine tasting events, and offer member discounts and monthly wine samples curated around themes and events.  The club will offer a subscription service to provide customers with a convenient and hassle-free way to discover and enjoy new wines. The business will also offer products related to wine, including wine glasses, decanters, wine opener, and other related products.  
+The site is built around a community and follows a business-to-customer B-to-C model. The site will offer a traditional retail experience, with the goal of engaging customers who are interested in the product and want to learn more about its background, attend tastings, and hear talks from winemakers and other industry specialists. The wine club will produce informative and engaging blog posts, host wine tasting events, and offer member discounts and monthly wine samples curated around themes and events. The business will also offer products related to wine, including wine glasses, decanters, wine openers, and other related products.  
 
 ## Preparation
 
 ### Wireframes
 
-Before using Balsamiq to layout my design, I prefer to utilize simple hand drawn sketches to develop my websites. To have a better understanding of the design and functionality, I took some time to examine and dissect other websites that I found enjoyable.
+I used Balsamiq to layout my design. To have a better understanding of the design and functionality, I took some time to examine and dissect other websites that I found enjoyable.
 
 <details>
 
@@ -54,9 +54,13 @@ Before using Balsamiq to layout my design, I prefer to utilize simple hand drawn
 
 ### Agile Development
 
-In the development of this e-commerce Django site, Agile methodologies were employed. The project was organised into various Tasks, contributing to overarching Epics that represented large-scale features and goals. To track the progress and ensure that stages were achieved, milestones were set at key points throughout the project timeline.
+In the development of this e-commerce Django site, agile methodologies were employed. The project was organised into various tasks, contributing to overarching epics that represented large-scale features and goals. In order to track the progress and ensure the achievement of stages, the project timeline included setting milestones at key points.
 
-User Stories were created and divided between the site owner and the customer to represent the different requirements and positions of these two groups. User Stories covered issues like customer management and inventory control for the website owner. The focus for the customer, was on enhancing user experience through seamless navigation, efficient checkouts, and intuitive search functionalities. By combining Agile practices with clearly defined milestones, the I was able to prioritise work, adapt to changes, and hopefully produce a functional ecommerce website.
+User stories were created and divided between the site owner and the customer to represent the different requirements and positions of these two groups. User stories covered issues like customer management and inventory control for the website owner. The focus for the customer was on enhancing the user experience through seamless navigation, efficient checkouts, and intuitive search functionalities. By combining Agile practices with clearly defined milestones, I was able to prioritise work, adapt to changes, and hopefully produce a functional e-commerce website.
+
+Link to my GitHub project page:
+
+[Github project](https://github.com/users/Shane-Bath/projects/5/views/1?layout=board)
 
 ### Agile User Stories
 ![product Page](/media/readme_images/agile.png)
@@ -65,9 +69,9 @@ User Stories were created and divided between the site owner and the customer to
 
 ### Homepage
 
-The homepage will feature a large hero image, with the title of the business. The image will take up 100% of the viewport. The shop link will be prominently displayed on the page. The website owner will be able to use this landing page to create a theme for the site, either to promote a product, an event, or a season.
+The homepage will feature a large hero image with the title of the business. The image will take up 100% of the viewport. The page will prominently display the shop link. The website owner will be able to use this landing page to create a theme for the site, either to promote a product, an event, or a season.
 
-As the user scrolls down, they will see bold images with links to different sections of the shop. For example, a "Bold Reds" image would bring the user to a curated selection of red wines. The homepage will also contain links to the blog and wine club, with information about upcoming events.
+As the user scrolls down, they will see bold images with links to different sections of the shop. For example, a "Bold Reds" image would bring the user to a curated selection of red wines. The homepage will also contain links to the blog and wine club, along with information about upcoming events.
 
 ![Home page](media/readme_images/homepage.png)
 
@@ -334,7 +338,7 @@ DATABASES = {
 26.	Run python manage.py migrate to migrate to the ElephantSQL database
 27.	Created and  deployed AWS bucket added keys to the Heroku config files
 
-The live site canbe found here: https://the-wine-society-01e133d06325.herokuapp.com/
+The live site can be found here: https://the-wine-society-01e133d06325.herokuapp.com/
 ## Bug Report:
 
 ### Issue with Quantity Update in Shopping Bag
