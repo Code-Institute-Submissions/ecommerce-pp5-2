@@ -4,6 +4,8 @@ from django.contrib import messages
 from django.core.mail import send_mail
 from django.conf import settings
 from django.template.loader import render_to_string
+from profiles.models import UserProfile
+from profiles.forms import UserProfileForm
 
 # Create your views here.
 
@@ -14,9 +16,21 @@ def contact_form(request):
     An email is sent to the site owner to notify them that a customer has sent
     contact email. And an email is sent to the client to confirm reciept of email.
     The contact email is saved in the admin panel.
+    The site check if the user is logged and prepopulates the contact form with the users 
+    details
     '''
 
-    contact_form = ContactForm()
+    # Check if user is logged and add users details into the form
+
+    if request.user.is_authenticated:
+        profile = UserProfile.objects.get(user=request.user)
+        initial_data = {
+            'name': profile.user.get_full_name(),
+            'email': profile.user.email,
+        }
+        contact_form = ContactForm(initial=initial_data)
+    else:
+        contact_form = ContactForm()
 
     if request.method == 'POST':
         contact_form = ContactForm(request.POST)
@@ -54,8 +68,5 @@ def contact_form(request):
             # Send a success message
             messages.info(request, 'Message sent. We will be in contact with you as soon as possible')
             return redirect('products')
-            
-    else:
-        contact_form = ContactForm()
 
     return render(request, 'contact.html', {'contact_form': contact_form})
