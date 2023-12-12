@@ -135,6 +135,10 @@ The footer has links to the contact us page and the newsletter signup page.
 ![Contact page](media/readme_images/Contact.png)
 </details>
 
+### Wishlist
+
+
+### Blog
 
 ## Technologies*
 
@@ -373,22 +377,38 @@ DATABASES = {
 27.	Created and  deployed AWS bucket added keys to the Heroku config files
 
 The live site can be found here: https://the-wine-society-01e133d06325.herokuapp.com/
+
 ## Bug Report:
 
 ### Issue with quantity update in shopping bag
 #### Description:
 
-When testing the script that manages item quantities in the shopping bag, an issue was observed with the decrement button's functionality. Specifically, when a user adds an item with a quantity of 1 to the bag and then increases the quantity using the increment button, the decrement button does not respond as expected to reduce the quantity. Instead, it remains disabled until the user clicks on the 'update' link.
+An issue has been identified with the decrement button functionality within the shopping bag's item quantity management script. When a user adds 1 item to the shopping bag and then modifies the quantity using the increment button, the decrement button does not properly activate to decrease the quantity. It remains disabled until the 'update' link is clicked.
 
-#### Observations:
+#### Steps to Reproduce:
 
-The DOM does not update the quantity value after each click of the increment/decrement buttons. It remains at the initial value until the 'update' link is clicked.
-The quantity seen by the user on the frontend increases with each click, but this change is not immediately reflected in the backend. The server-side update only occurs upon clicking the 'update' link, which triggers a form submission.
-Post 'update' action, the decrement button functionality resumes as normal because the server and the DOM are then synchronized with the updated quantity.
+ - Add an item with a quantity of 1 to the shopping bag.
+ - In the shopping bag, use the increment button to increase the item quantity.
+ - Attempt to use the decrement button to reduce the item quantity.
 
-#### Initial Approach:
+#### Expected Behaviour
 
-To resolve this, an attempt was made to submit the form after each button click, intending to update the DOM and the server simultaneously. For example:
+The decrement button should be immediately responsive, allowing the user to decrease the item quantity after it has been incremented.
+
+#### Actual Behaviour
+
+The decrement button remains disabled after using the increment button. It only becomes active again after clicking the 'update' link, which synchronizes the front-end display with the back-end data. If the quainity is greater than 1, the decrement button works as expected.
+
+#### Technical Observations:
+
+- The DOM does not reflect the updated quantity value in real-time when clicking the increment/decrement buttons. Initially set at a value of 1, it remains unchanged until the 'update' link is clicked.
+- The issue lies in the decrement button's logic, which is designed to disable itself to prevent the item quantity from going below 1. Since the backend still perceives the quantity as 1 (due to the DOM not being updated with each increment), the decrement button remains disabled, incorrectly reflecting the frontend's incremented quantity.
+- The quantity displayed to the user on the frontend increases with each incremental click. However, these changes are not immediately reflected in the backend. The server-side update only occurs upon clicking the 'update' link, which triggers a form submission.
+-  Performing the 'update' action, the decrement button functionality resumes as normal because the server and the DOM are then synchronised with the updated quantity. This synchronisation corrects the decrement button's behaviour, enabling it only when the quantity is greater than 1.
+
+### Attempted Resolution
+
+To resolve this, I attempted to submit the form after each button click, intending to update the DOM and the server simultaneously. See below:
 
         $('.increment-qty').click(function (e) {
         e.preventDefault();
@@ -407,6 +427,12 @@ After further research, it appears that integrating AJAX with the existing form 
 
 For the current project, the automatic form submission on button clicks has been removed to avoid page reloads. Users will need to manually click the 'update' link to synchronize changes. In future e-commerce projects, AJAX will be considered for handling such interactions to enhance the user experience.
 
+#### Severity:
+
+This issue affects the user experience in managing shopping bag contents, as it can lead to confusion and potential mistakes in order quantity.
+
+### Mobile Media Query Issues on Home Page Navigation
+#### Description:
 
 
 ## Credits

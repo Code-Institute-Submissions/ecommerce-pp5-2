@@ -2,39 +2,34 @@
     <div class="container quotes-container content-container">
         <section class="footer">
             <div class="row">
-                <div class="col-12 page-header mb-4 mt-4">
+                <div class="col-12 col-md-6 page-header mb-4 mt-4">
                     <h2 class="text-uppercase footer-h">Stay Connected:</h2>
                     <hr>
                 </div>
             </div>
-                <div class="row">
-                    <div class="col-md-6">
-                        <!-- Contact us - need a contact us page -->
-                        <div class="mb-3">
-                            <h4 class="footer-h">Contact us:</h4>
-                            <a href="{% url 'contact_form' %}"><i class="fa-regular fa-envelope"></i></a>
-                            <hr>
-                        </div>
-
-                        <div class="footer-h">
-                            <H4>Address:</H4>
-                            <p>Main Street</p>
-                            <P>Dublin, Ireland</p>
-                            
-                        </div>
-                    <!-- Feedback ? need a feedback page -->
-                        <!-- <div class="mb-3">
-                            <h4 class="footer-h">Feedback</h4>
-                            <a href="#"><i class="fa-regular fa-comment"></i></a>
-                        </div> -->
+            <div class="row">
+                <div class="col-12 col-md-6">
+                    <!-- Contact us - need a contact us page -->
+                    <div class="mb-3">
+                        <h4 class="footer-h">Contact us:</h4>
+                        <a href="{% url 'contact_form' %}"><i class="fa-regular fa-envelope"></i></a>
+                        <hr>
                     </div>
-                
-                    <div class="col-md-6">
-                        <h4 class="footer-h">Newsletter</h4>
-                        <p class="footer-h">Sign up to our monthly Neswletter for the latest offers and news.</p>
-                        {% include 'includes/newsletter.html' %}
+
+                    <div class="footer-h">
+                        <H4>Address:</H4>
+                        <p>Main Street</p>
+                        <P>Dublin, Ireland</p>
+
                     </div>
                 </div>
+
+                <div class="col-12 col-md-6">
+                    <h4 class="footer-h">Newsletter</h4>
+                    <p class="footer-h">Sign up to our monthly Neswletter for the latest offers and news.</p>
+                    {% include 'includes/newsletter.html' %}
+                </div>
+            </div>
         </section>
     </div>
 </footer>
