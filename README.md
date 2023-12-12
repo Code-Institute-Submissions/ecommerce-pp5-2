@@ -433,6 +433,20 @@ This issue affects the user experience in managing shopping bag contents, as it 
 
 ### Mobile Media Query Issues on Home Page Navigation
 #### Description:
+When testing the responsiveness of the site, the CSS media queries function correctly on the homepage when resizing the browser from a larger screen size to a mobile screen size. However, an issue arises when navigating away from the homepage and then returning: the CSS media queries are not applied upon return to the home page.
+
+#### Steps to Reproduce:
+ - Open the website on a desktop chrome browser
+ - Resize the browser to a mobile screen width to observe the media query effects on the homepage.
+- Navigate to any other page on the site.
+- Return to the homepage either by using the back button of the browser or through the site's navigation menu.
+
+#### Expected Behaviour
+When returning to the homepage, the website should maintain its responsive design, with the media queries applied correctly as they were during the initial load.
+
+#### Actual Behaviour
+After returning to the homepage, the site does not apply the responsive CSS media queries. The layout appears as if intended for a larger screen, disregarding the mobile-specific styles.
+
 
 
 ## Credits
