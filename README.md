@@ -173,7 +173,7 @@ Leveraging both Facebook and a dedicated blog, I aim to create a dynamic online 
 
 ### Blog
 
-The blog, on the other hand, serves as a platform for more in-depth content, including wine pairing guides and interviews with vineyard owners. Together, these platcforms not only attract new customers but also build a community of wine enthusiasts.
+The blog, on the other hand, serves as a platform for more in-depth content, including wine pairing guides and interviews with vineyard owners. Together, these platforms not only attract new customers but also build a community of wine enthusiasts.
 
 A wine blog can be used to populate other marketing channels, such as Facebook and Instagram, with engaging and informative content. Additionally, Google places higher ranking on authoritative sources, so a regularly updated blog can assist the overall business with SEO rankings.
 
@@ -207,12 +207,9 @@ categories, which include style, colour, regions, and countries. Which will allo
 the owner of the site to upload products and categorise them appropriately to 
 ensure that the users of the site will be able to find the products.
 
-
-
-The owner will be able to grow the type of products as the business develops, as 
+The owner will be able to increse the type of products sold as the business develops, as 
 there is flexibility with the database to continue to add to the existing database.
- The owner can add and delete products and categories in the admin section of the 
- website.
+The owner can add and delete products and categories in the admin section of the website.
 
 <details>
 <summary> Database schema </summary>
@@ -277,8 +274,8 @@ there is flexibility with the database to continue to add to the existing databa
 ### Checkout
 | Objective | Test | Expected result | Passed |
 | :---:     | :---:|    :---:        | :---:  |
-| Check if the checkout information form accepts the correct values | Complete the checkout form | The user is notified if the user has left out required information or inputted the incorrect value | Passed |
-| Check if the credit card validation works | Complete the payment form | The user is notified if the user has inputted a invalid credit card number | Passed |
+| Check if the checkout information form accepts the correct values | Complete the checkout form | The user is notified if the user has left out required information or entered the incorrect value | Passed |
+| Check if the credit card validation works | Complete the payment form | The user is notified if the user has entered a invalid credit card number | Passed |
 | Check if the complete order button works | Click the complete order button  | The user is redirected to successful checkout page with the information about the purchase | Passed |
 
 ### Profile
@@ -341,7 +338,6 @@ As they do not impact the website, I have left them in place to avoid creating i
 -![W3C CSS Result](./media/readme_images/css_error.png)
    -  Two error which one which I corrected, the second issue was not resolved before deployment.
 
-I manually tested the site, dicovering and resolving a number of bugs. I used prints statements and console log as my main tools for fixing the the issues. I with statments I would be able see each step and indentify the issues.
 
 ## Deployment
 
@@ -433,7 +429,7 @@ This issue affects the user experience in managing shopping bag contents, as it 
 
 ### Mobile Media Query Issues on Home Page Navigation
 #### Description:
-When testing the responsiveness of the site, the CSS media queries function correctly on the homepage when resizing the browser from a larger screen size to a mobile screen size. However, an issue arises when navigating away from the homepage and then returning: the CSS media queries are not applied upon return to the home page.
+When testing the responsiveness of the site, the CSS media queries function correctly on the homepage when resizing the browser from a larger screen size to a mobile screen size. However, an issue arises when navigating away from the homepage and then returning the CSS media queries are not applied upon return to the home page.
 
 #### Steps to Reproduce:
  - Open the website on a desktop chrome browser
@@ -447,7 +443,23 @@ When returning to the homepage, the website should maintain its responsive desig
 #### Actual Behaviour
 After returning to the homepage, the site does not apply the responsive CSS media queries. The layout appears as if intended for a larger screen, disregarding the mobile-specific styles.
 
+#### Potential Causes:
 
+ - JavaScript on the site might be interfering with the proper application of the CSS media queries after navigation.
+ -  The site's CSS might have specificity issues overriding  the media queries when returning to the homepage. [CSS specificity](https://developer.mozilla.org/en-US/docs/Web/CSS/Specificity)
+- The issue might be related to browser caching, where the browser is not reloading the CSS file upon navigation. 
+
+#### Screenshots
+<details>
+<summary> Mobile</summary>
+
+![mobile](media/readme_images/iphone-pro.png)
+![mobile issue](media/readme_images/iphone-pro-issues.png)
+</details>
+
+#### Severity:
+
+The issue impacts the mobile user experience , as it hinders the responsive design of the site.
 
 ## Credits
 
